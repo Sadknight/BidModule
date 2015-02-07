@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/calculatorPage/mainBidTemplate.xhtml">
+    <ui:define name="menu">
+        <!--МЕНЮ ЭЛЕМЕНТОВ ЗАЯВКИ-->
+        <p:commandButton
+                id="buttonComponenti"
+                type="button"
+                onclick="PF('dlg1').show();"
+                styleClass="ui-ribbon-bigbutton"
+                icon="ui-ribbonicon-tree"
+                style="width:50px">
+        </p:commandButton>
+        <p:tooltip id="toolTipComponenti" for="buttonComponenti" value="Дерево заявки" trackMouse="true"/>
+    </ui:define>
+    <!--ЧАСТЬ МЕНЮ "ДЕЙСТВИЕ"-->
+    <ui:define name="menuAction">
+        <p:commandButton
+                id="buttonSave"
+                type="button"
+                styleClass="ui-ribbon-bigbutton"
+                icon="ui-ribbonicon-save"
+                style="width:50px">
+        </p:commandButton>
+        <p:tooltip id="toolTipSave" for="buttonSave" value="Сохранить" trackMouse="true"/>
+        <p:commandButton
+                id="buttonSaveAdnOpen"
+                type="button"
+                icon="ui-ribbonicon-saveshablon"
+                styleClass="ui-ribbon-bigbutton"
+                style="width:50px"
+                update="mainForm" process="@this">
+        </p:commandButton>
+        <p:tooltip id="toolTipbuttonSaveAdnOpen" for="buttonSaveAdnOpen" value="Сохранить и открыть в качестве образца"
+                   trackMouse="true"/>
+        <p:commandButton
+                id="buttonExit"
+                type="button"
+                icon="ui-ribbonicon-exit"
+                styleClass="ui-ribbon-bigbutton"
+                style="width:50px"
+                update="mainForm" process="@this">
+        </p:commandButton>
+        <p:tooltip id="toolTipExit" for="buttonExit" value="Выйти" trackMouse="true"/>
+    </ui:define>
+    <!--ЦЕНТРАЛЬНАЯ ЧАСТЬ СТРАНИЦЫ-->
+    <ui:define name="content">
+        <!--Всплывающие окна-->
+        <p:dialog id="dialogComponenti"
+                  header="Компоненты"
+                  widgetVar="dlg1"
+                  minHeight="40"
+                  closeOnEscape="true"
+                  dynamic="true"
+                  maximizable="true"
+                  minimizable="true" modal="false">
+            <p:tree id="dialogComponentiTree"
+                    value="#{createEntity.zayavka}"
+                    var="Node"
+                    selectionMode="single"
+                    orientation="horizontal"
+                    styleClass="ui-treenode-parent"
+                    dynamic="true">
+                <p:ajax update=":mainForm:testCenterElements" event="select" listener="#{createEntity.chooseTree}"/>
+                <p:treeNode>
+                    <h:outputText style="color: #{node.color}" value="#{Node.nameClass}"/>
+                </p:treeNode>
+            </p:tree>
+        </p:dialog>
+        <p:layout id="mainElements" style="min-width:200px;min-height:600px;">
+            <!--ЛЕВАЯ ЧАСТЬ СТРАНИЦЫ-->
+            <p:layoutUnit id="leftElement" position="west" size="250" collapsible="true" header="Меню">
+                <p:tree id="leftTreeComponenti"
+                        value="#{createEntity.treeNode}"
+                        style="background-color:  transparent; border-color:  transparent; width: 240px;"
+                        var="node"
+                        selectionMode="single"
+                        styleClass="ui-treenode-parent"
+                        dynamic="true">
+                    <p:ajax update=":mainForm:testCenterElements" event="select" listener="#{createEntity.chooseTree}"/>
+                    <p:treeNode>
+                        <p:outputLabel style="color: #{node.color}" value="#{node.nameClass}"/>
+                    </p:treeNode>
+
+                </p:tree>
+            </p:layoutUnit>
+            <!--ЦЕНТРАЛЬНАЯ ЧАСТЬ СТРАНИЦЫ-->
+            <p:layoutUnit id="centerPage" position="center" size="auto">
+                <h:panelGrid id="testCenterElements">
+                    <ui:include src="#{createEntity.showedPage}"/>
+                </h:panelGrid>
+            </p:layoutUnit>
+        </p:layout>
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="BidDB">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>model.Broshyrovkapodizdaniya</class>
+        <class>model.Bymaga</class>
+        <class>model.Componenti</class>
+        <class>model.Contacts</class>
+        <class>model.Dogovora</class>
+        <class>model.Dostavka</class>
+        <class>model.Dostavkasignalov</class>
+        <class>model.IdKontragentov</class>
+        <class>model.Idzayavki</class>
+        <class>model.Lakirovanienamashine</class>
+        <class>model.Operaciisgotovimizdeliem</class>
+        <class>model.Otdelkacomponenti</class>
+        <class>model.Pantoninamashine</class>
+        <class>model.Podizdaniya</class>
+        <class>model.ReestrIzdanii</class>
+        <class>model.Spyski</class>
+        <class>model.Ykladkanapaleti</class>
+        <class>model.Ypakovkagotovogoizdeliya</class>
+        <class>model.Pantonespravochnik</class>
+        <class>model.Dopizdelie</class>
+        <class>model.Pantonespravochnik</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/bid"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="admin"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.pool_size" value="5"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.query.factory_class"
+                      value="org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory"/>
+        </properties>
+    </persistence-unit>
+</persistence>

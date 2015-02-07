@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <h:panelGrid id="panelIDZayavki" columns="2">
+        <p:outputLabel value="Название"/>
+        <p:inputText value="#{createEntity.dopIzdelie.commentIzdanie}">
+            <p:ajax update="leftTreeComponenti, dialogComponentiTree" event="blur"
+                    listener="#{createEntity.chSamogoNazvanieDopIzdeliya}"/>
+        </p:inputText>
+        <p:outputLabel value="Тип изделия"/>
+        <h:panelGrid columns="2">
+            <p:selectOneMenu id="tipizdeliya"
+                             value="#{createEntity.dopIzdelie.tipIzdeliya}"
+                             rendered="#{createEntity.dopIzdelie.tipIzdeliya == null}">
+                <f:selectItem itemLabel="---" itemValue=""/>
+                <f:selectItem itemLabel="Журнальное издание КБС" itemValue="Журнальное издание КБС"/>
+                <f:selectItem itemLabel="Журнальное издание ВШРА" itemValue="Журнальное издание ВШРА"/>
+                <f:selectItem itemLabel="Издания с проклейкой корешка"
+                              itemValue="Издания с проклейкой корешка"/>
+                <f:selectItem itemLabel="Газетное издание со скреплением"
+                              itemValue="Газетное издание со скреплением"/>
+                <f:selectItem itemLabel="Газетное издание без скрепления"
+                              itemValue="Газетное издание без скрепления"/>
+                <f:selectItem itemLabel="Листовое издание без фальцовки" itemValue="Листовое издание без фальцовки"/>
+                <f:selectItem itemLabel="Листовое издание с фальцовкой" itemValue="Листовое издание с фальцовкой"/>
+                <f:selectItem itemLabel="Ролевый полуфабрикат" itemValue="Ролевый полуфабрикат"/>
+                <f:selectItem itemLabel="Книжное издание" itemValue="Книжное издание"/>
+                <f:selectItem itemLabel="Календарь" itemValue="Календарь"/>
+
+                <p:ajax listener="#{createEntity.saveMethod}" update="panelIDZayavki">
+                </p:ajax>
+            </p:selectOneMenu>
+            <p:outputLabel value="#{createEntity.dopIzdelie.tipIzdeliya}"
+                           rendered="#{createEntity.dopIzdelie.tipIzdeliya != null}"/>
+            <p:commandButton rendered="#{createEntity.dopIzdelie.tipIzdeliya != null}"
+                             action="#{createEntity.chTipDopIzdeliya}"
+                             icon="ui-ribbonicon-pencil"
+                             update="leftTreeComponenti, dialogComponentiTree, panelIDZayavki">
+                <p:confirm header="Внимание" message="Вы уверены?" icon="ui-icon-alert"/>
+            </p:commandButton>
+            <p:confirmDialog global="true">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value=" Данные по компонентам будут удалены"/>
+                    <p:outputLabel/>
+
+                    <p:commandButton value="Да" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="Нет" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </h:panelGrid>
+            </p:confirmDialog>
+        </h:panelGrid>
+        <p:outputLabel value="Количество компонент"/>
+        <p:spinner id="colComponent"
+                   value="#{createEntity.dopIzdelie.colComponent}"
+                   min="1">
+            <p:ajax update="leftTreeComponenti, dialogComponentiTree"
+                    listener="#{createEntity.chColComponentDopIzdeliya}"/>
+        </p:spinner>
+        <p:outputLabel value="Количество видов изделия">
+
+        </p:outputLabel>
+        <p:spinner id="colPodizdanii"
+                   value="#{createEntity.dopIzdelie.colPodizdanii}"
+                   min="1">
+            <p:ajax update="leftTreeComponenti, dialogComponentiTree"
+                    listener="#{createEntity.chColPodizdaniiDopComponenti}"/>
+        </p:spinner>
+
+        <p:outputLabel value="Дата прихода"/>
+
+        <p:calendar id="dataBegin"
+
+                    pattern="dd/MM/yyyy HH:mm">
+            <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+            <p:ajax event="dateSelect" listener="#{createEntity.saveDate}"/>
+        </p:calendar>
+        <p:outputLabel value="Дата отгрузки"/>
+        <p:calendar id="dataEnd"
+
+                    pattern="dd/MM/yyyy HH:mm">
+            <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+            <p:ajax event="dateSelect" listener="#{createEntity.saveDate}"/>
+        </p:calendar>
+        <p:outputLabel value="Формат 1"/>
+        <p:spinner id="format1" value="#{createEntity.dopIzdelie.format1}" min="1" max="2500">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+        <p:outputLabel value="Формат 2"/>
+        <p:spinner id="format2" value="#{createEntity.dopIzdelie.format2}" min="1" max="2500">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+        <p:outputLabel value="Тираж"/>
+        <p:spinner id="tiraj" value="#{createEntity.dopIzdelie.tiraj}" min="1000" max="5000000">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+    </h:panelGrid>
+</h:body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="4">
+        <p:outputLabel value="Класс бумаги"/>
+        <p:outputLabel value="Наименование"/>
+        <p:outputLabel value="Граммаж"/>
+        <p:outputLabel value="Класс бумаги"/>
+        <p:selectOneListbox id="tipBymagi">
+            <f:selectItem itemLabel="Все" itemValue="Все"/>
+            <f:selectItem itemLabel="MWC" itemValue="MWC"/>
+            <f:selectItem itemLabel="Газетная" itemValue="Газетная"/>
+            <f:selectItem itemLabel="Другая" itemValue="Другая"/>
+        </p:selectOneListbox>
+        <p:selectOneListbox id="VidBymagi">
+            <f:selectItem itemLabel="Все" itemValue="Все"/>
+            <f:selectItem itemLabel="Мелованная" itemValue="Мелованная"/>
+            <f:selectItem itemLabel="Глянцевая" itemValue="Глянцевая"/>
+            <f:selectItem itemLabel="Другая" itemValue="Другая"/>
+        </p:selectOneListbox>
+        <p:selectOneListbox id="basic">
+            <f:selectItem itemLabel="Все" itemValue="Все"/>
+            <f:selectItem itemLabel="65" itemValue="65"/>
+            <f:selectItem itemLabel="75" itemValue="75"/>
+            <f:selectItem itemLabel="100" itemValue="100"/>
+        </p:selectOneListbox>
+    </h:panelGrid>
+</h:body>
+</html>

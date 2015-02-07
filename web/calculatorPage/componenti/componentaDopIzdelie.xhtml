@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Название доп. изделия" for="nazvanieComponenti"/>
+        <p:outputLabel id="nazvanieComponenti" value="#{createEntity.componenta.nazvanieComponenti}"/>
+    </h:panelGrid>
+    <p:separator/>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Тираж" for="tirajComponenti"/>
+        <p:spinner min="1000" size="3" id="tirajComponenti" value="#{createEntity.componenta.tirajComponenti}">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+    </h:panelGrid>
+    <p:panel header="Крепление">
+        <ui:include src="componentiCreplenie.xhtml"/>
+    </p:panel>
+
+</h:body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:commandButton icon="ui-icon-circle-plus" action="#{createEntity.addColDostavok}"
+                         update="panelDostavok, leftTreeComponenti, dialogComponentiTree"/>
+        <p:commandButton icon="ui-icon-circle-minus" action="#{createEntity.removeColDostavok}"
+                         update="panelDostavok, leftTreeComponenti, dialogComponentiTree"/>
+    </h:panelGrid>
+    <h:panelGrid id="panelDostavok">
+        <c:forEach begin="0" var="i" end="#{createEntity.dostavka.size()-1}">
+            <p:panel>
+                <h:panelGrid columns="6">
+
+                    <p:outputLabel value="Тираж" for="tirajDostavki${i}" rendered="#{createEntity.dostavka.size() >1}"/>
+                    <p:spinner id="tirajDostavki${i}" value="#{createEntity.dostavka[i].tirajDostavki}"
+                               rendered="#{createEntity.dostavka.size() >1}"/>
+
+                    <p:outputLabel value="Дата отгрузки" for="dataOtgryzkiDostavki${i}"/>
+                    <p:calendar id="dataOtgryzkiDostavki${i}" value="#{createEntity.dostavkaDate[i]}"
+                                pattern="dd.MM.yyyy HH:mm">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm"/>
+                        <p:ajax event="dateSelect" listener="#{createEntity.saveDateDostavki}"
+                                update="leftTreeComponenti, dialogComponentiTree"/>
+                    </p:calendar>
+
+                    <p:outputLabel value="Перевозчик" for="companiyaDostavki${i}"/>
+                    <p:inputText id="companiyaDostavki${i}" value="#{createEntity.dostavka[i].companiyaDostavki}"/>
+
+                    <p:outputLabel value="Адрес" for="adresDostavki${i}"/>
+                    <p:inputText id="adresDostavki${i}" value="#{createEntity.dostavka[i].adresDostavki}"/>
+
+                    <p:outputLabel value="Контакт доставки" for="kontaktDostavki${i}"/>
+                    <p:inputText id="kontaktDostavki${i}" value="#{createEntity.dostavka[i].kontaktDostavki}"/>
+                </h:panelGrid>
+            </p:panel>
+        </c:forEach>
+    </h:panelGrid>
+</h:body>
+</html>

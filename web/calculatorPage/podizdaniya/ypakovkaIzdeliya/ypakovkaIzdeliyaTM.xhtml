@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Тираж" for="tirajYpakovki" rendered="#{createEntity.showTiraj}"/>
+        <p:spinner min="1" id="tirajYpakovki" value="#{createEntity.ypakovka.tirajYpakovki}"
+                   rendered="#{createEntity.showTiraj}">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+
+        <p:outputLabel value="Количество в пачке"
+                       for="colVPachkeYpakovki"/>
+        <p:spinner min="1" id="colVPachkeYpakovki" value="#{createEntity.ypakovka.colVPachkeYpakovki}">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+
+        <p:outputLabel value="Тип упаковки" for="tipYpakovki"/>
+        <p:selectOneMenu id="tipYpakovki" value="#{createEntity.ypakovka.tipYpakovki}">
+            <f:selectItem itemLabel="В ПЭ без ТУ" itemValue="В ПЭ без ТУ"/>
+            <f:selectItem itemLabel="В ПЭ с ТУ" itemValue="В ПЭ с ТУ"/>
+            <f:selectItem itemLabel="Короба+скотч" itemValue="Короба+скотч"/>
+            <f:selectItem itemLabel="Крафт+скотч" itemValue="Крафт+скотч"/>
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:selectOneMenu>
+        <p:outputLabel value="Тип обвязки"
+                       for="tipObvyzkiYpakovki"/>
+        <p:selectOneMenu id="tipObvyzkiYpakovki" value="#{createEntity.ypakovka.tipObvyzkiYpakovki}">
+            <f:selectItem itemLabel="Крест на крест" itemValue="Крест на крест"/>
+            <f:selectItem itemLabel="Параллельно" itemValue="Параллельно"/>
+            <f:selectItem itemLabel="Без обвязки" itemValue="Без обвязки"/>
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:selectOneMenu>
+        <p:outputLabel value="Количество видов укладок на паллеты" for="tirajPodizdaniya"/>
+        <p:spinner min="1" id="tirajPodizdaniya" value="#{createEntity.ypakovka.colYkladok}">
+            <p:ajax listener="#{createEntity.chColYkladok}" update="dialogComponentiTree, leftTreeComponenti"/>
+        </p:spinner>
+    </h:panelGrid>
+</h:body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:panelGrid columns="4">
+
+        <p:outputLabel style="color: brown" value="Название организации" for="clientName"/>
+        <p:outputLabel id="clientName" value="#{managerMenu.dogovora.clientName}"/>
+
+        <p:outputLabel value="Тип договора" for="tipDogovor" style="color: brown"
+                       rendered="#{managerMenu.dogovora.tipDogovor != null}"/>
+        <p:outputLabel id="tipDogovor" value="#{managerMenu.dogovora.tipDogovor}"
+                       rendered=" #{managerMenu.dogovora.tipDogovor != null}"/>
+
+        <p:outputLabel value="Вид договора" for="vid" style="color: brown"
+                       rendered="#{managerMenu.dogovora.vid != null}"/>
+        <p:outputLabel id="vid" value="#{managerMenu.dogovora.vid}"
+                       rendered="#{managerMenu.dogovora.vid != null}"/>
+
+        <p:outputLabel value="Предмет договора" for="predmet" style="color: brown"
+                       rendered="#{managerMenu.dogovora.vid != null}"/>
+        <p:outputLabel id="predmet" value="#{managerMenu.dogovora.predmet}"
+                       rendered="#{managerMenu.dogovora.vid != null}"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+
+        <p:outputLabel value="Номер договора" for="numberDor" style="color: brown"/>
+        <p:outputLabel id="numberDor" value="#{managerMenu.dogovora.numberDor}"/>
+
+        <p:outputLabel value="Дата начала" for="dateBegin" style="color: brown"/>
+        <p:outputLabel id="dateBegin" value="#{managerMenu.dogovora.dateBegin}"
+                       pattern="dd/MM/yyyy">
+        </p:outputLabel>
+
+        <p:outputLabel value="Дата окончания" for="dateEnd" style="color: brown"
+                       rendered="#{managerMenu.dogovora.dateEnd != null}"/>
+        <p:outputLabel id="dateEnd" value="#{managerMenu.dogovora.dateEnd}"
+                       title="#{bundle.CreateDogovoraTitle_dateEnd}" pattern="dd/MM/yyyy"
+                       rendered="#{managerMenu.dogovora.dateEnd != null}">
+        </p:outputLabel>
+        <p:outputLabel value="Автопролонгация" for="autoProl" style="color: brown"/>
+        <p:selectBooleanButton id="autoProl" value="#{managerMenu.dogovora.autoProl}" onLabel="Да" disabled="true"
+                               offLabel="Нет"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+        <p:outputLabel value="Условия оплаты по договору" for="ysloviya" style="color: brown"
+                       rendered="#{managerMenu.dogovora.ysloviya != null}"/>
+        <p:outputLabel id="ysloviya" value="#{managerMenu.dogovora.ysloviya}"
+                       rendered="#{managerMenu.dogovora.ysloviya != null}"/>
+
+        <p:outputLabel value="Наличие базовой спецификации" for="spec" style="color: brown"
+                       rendered="#{managerMenu.dogovora.baseSpec != null}"/>
+        <p:selectBooleanButton id="spec" value="#{managerMenu.dogovora.baseSpec}" onLabel="Да"
+                               rendered="#{managerMenu.dogovora.baseSpec != null}"
+                               offLabel="Нет" disabled="true"/>
+
+        <p:outputLabel value="Ответственность  закзчика по бумаге (кол-во дней)" for="otvetst" style="color: brown"
+                       rendered="#{managerMenu.dogovora.otvetstvenostBymaga != null}"/>
+        <p:outputLabel id="otvetst" value="#{managerMenu.dogovora.otvetstvenostBymaga}"
+                       rendered="#{managerMenu.dogovora.otvetstvenostBymaga != null}"/>
+
+        <p:outputLabel value="Курс контракта" for="kyrs" style="color: brown"
+                       rendered="#{managerMenu.dogovora.kyrs != null}"/>
+        <p:outputLabel id="kyrs" value="#{managerMenu.dogovora.kyrs}" title="если зафиксирован"
+                       rendered="#{managerMenu.dogovora.kyrs != null}"/>
+
+        <p:outputLabel value="Базовые значения Маржи и ЕБИТДЫ" for="marja1" style="color: brown"
+                       rendered="#{managerMenu.dogovora.marja1 != null}"/>
+        <p:outputLabel id="marja1" value="#{managerMenu.dogovora.marja1}"
+                       rendered="#{managerMenu.dogovora.marja1 != null}"/>
+
+        <p:outputLabel value="Изменение экономики в 2014 году Маржа, ЕБИТДА " for="marja2" style="color: brown"
+                       rendered="#{managerMenu.dogovora.marja2 != null}"/>
+        <p:outputLabel id="marja2" value="#{managerMenu.dogovora.marja2}"
+                       rendered="#{managerMenu.dogovora.marja2 != null}"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+
+        <p:outputLabel value="Гиппер ссылка" for="giperSsilka" style="color: brown"
+                       rendered="#{managerMenu.dogovora.giperSsilka != null}"/>
+        <p:outputLabel id="giperSsilka" value="#{managerMenu.dogovora.giperSsilka}"
+                       rendered="#{managerMenu.dogovora.giperSsilka != null}"/>
+
+        <p:outputLabel value="Комментарий" for="commentDogovora" style="color: brown"
+                       rendered="#{managerMenu.dogovora.commentDogovora != null}"/>
+        <p:outputLabel id="commentDogovora" value="#{managerMenu.dogovora.commentDogovora}"
+                       rendered="#{managerMenu.dogovora.commentDogovora != null}"/>
+
+        <p:outputLabel value="Номер листа согласования" for="numberList" style="color: brown"
+                       rendered="#{managerMenu.dogovora.numberList != null}"/>
+        <p:outputLabel id="numberList" value="#{managerMenu.dogovora.numberList}"
+                       rendered="#{managerMenu.dogovora.numberList != null}"/>
+
+        <p:outputLabel value="Дата регистрации" for="regDate" style="color: brown"
+                       rendered="#{managerMenu.dogovora.regDate != null}"/>
+        <p:outputLabel id="regDate" value="#{managerMenu.dogovora.regDate}"
+                       pattern="dd/MM/yyyy" rendered="#{managerMenu.dogovora.regDate != null}">
+        </p:outputLabel>
+
+        <p:outputLabel value="Дата окончания регистрации" for="regDateEnd" style="color: brown"
+                       rendered="#{managerMenu.dogovora.regDateEnd != null}"/>
+        <p:outputLabel id="regDateEnd" value="#{managerMenu.dogovora.regDateEnd}"
+                       pattern="dd/MM/yyyy" rendered="#{managerMenu.dogovora.regDateEnd != null}">
+        </p:outputLabel>
+
+    </p:panelGrid>
+</f:view>
+</html>

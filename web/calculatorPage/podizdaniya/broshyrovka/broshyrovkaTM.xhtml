@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Тираж" for="tirajBroshyrovki"/>
+        <p:inputText id="tirajBroshyrovki" value="#{createEntity.buferMainClass.tirajBroshyrovki}"/>
+
+        <p:outputLabel value="ИД операции прошуровки"
+                       for="idOperaciiBroshyrovki"/>
+        <p:inputText id="idOperaciiBroshyrovki"
+                     value="#{createEntity.buferMainClass.idOperaciiBroshyrovki}"/>
+
+        <p:outputLabel value="Дополнительный признак"
+                       for="priznakSkrepleniyaBroshyrovki"/>
+        <p:inputText id="priznakSkrepleniyaBroshyrovki"
+                     value="#{createEntity.buferMainClass.priznakSkrepleniyaBroshyrovki}"/>
+
+        <p:outputLabel value="доп поле"
+                       for="oborydovanieBroshyrovki"/>
+        <p:inputText id="oborydovanieBroshyrovki"
+                     value="#{createEntity.buferMainClass.oborydovanieBroshyrovki}"/>
+
+    </h:panelGrid>
+</h:body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="indexTemplate.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Логин:" for="loggin"/>
+                <p:inputText id="loggin" value="#{autificationBean.user}"/>
+                <p:outputLabel value="Пароль:" for="password"/>
+                <p:password id="password" value="#{autificationBean.password}"/>
+                <p:commandButton id="testUser" value="Войти"
+                                 action="#{autificationBean.testUser}"/>
+            </h:panelGrid>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

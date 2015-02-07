@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+</head>
+<h:body>
+    <h:panelGrid>
+        <h:panelGrid id="panelComponenti" columns="3">
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Тип компоненты" for="tipComponenti"/>
+                <p:outputLabel value="Выберите тип изделия" rendered="#{createEntity.spisokKomponent.isEmpty()}"/>
+                <p:selectOneMenu id="tipComponenti" value="#{createEntity.componenta.tipComponenti}" required="true"
+                                 rendered="#{!createEntity.spisokKomponent.isEmpty()}">
+                    <f:selectItems value="#{createEntity.spisokKomponent}" var="sK" itemLabel="#{sK.nazvanieComponenti}"
+                                   itemValue="#{sK.nazvanieComponenti}"/>
+                    <!--<f:selectItem itemLabel="Компонента" itemValue="Компонента"/>-->
+                    <!--<f:selectItem itemLabel="Обложка" itemValue="Обложка"/>-->
+                    <!--<f:selectItem itemLabel="Суперобложка" itemValue="Суперобложка"/>-->
+                    <!--<f:selectItem itemLabel="Блок" itemValue="Блок"/>-->
+                    <!--<f:selectItem itemLabel="Блок перевёртышь" itemValue="Блок перевёртышь"/>-->
+                    <!--<f:selectItem itemLabel="Вклейка" itemValue="Вклейка"/>-->
+                    <!--<f:selectItem itemLabel="Вшивка(вставка)" itemValue="Вшивка(вставка)"/>-->
+
+                    <!--<f:selectItem itemLabel="Давальческое изделие" itemValue="Давальческое изделие"/>-->
+                    <!--<f:selectItem itemLabel="Промообразец" itemValue="Промообразец"/>-->
+                    <p:ajax update="dialogComponentiTree, formati, leftTreeComponenti, koreshok1, koreshok, colPolos"
+                            listener="#{createEntity.chNazvanieComponenti()}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Название компоненты" for="nazvanieComponenti"/>
+                <p:inputText id="nazvanieComponenti" value="#{createEntity.componenta.nazvanieComponenti}">
+
+                    <p:ajax event="blur" update="dialogComponentiTree, leftTreeComponenti"
+                            listener="#{createEntity.chNazvanieComponenti()}"/>
+                </p:inputText>
+                <p:outputLabel value="Вид компоненты" for="nazvanieComponenti" rendered="false"/>
+                <p:selectOneMenu value="#{createEntity.componenta.nazvanieComponenti}"
+                                 editable="true"
+                                 rendered="false">
+                    <f:selectItem itemLabel="Брошюра" itemValue="Брошюра"/>
+                    <f:selectItem itemLabel="Журнал" itemValue="Журнал"/>
+                    <f:selectItem itemLabel="Буклет" itemValue="Буклет"/>
+                    <f:selectItem itemLabel="Купон" itemValue="Купон"/>
+                    <f:selectItem itemLabel="Плакат" itemValue="Плакат"/>
+                    <f:selectItem itemLabel="Листовка" itemValue="Листовка"/>
+                </p:selectOneMenu>
+
+
+                <p:outputLabel value="Тираж" for="tirajComponenti"/>
+                <p:spinner min="1000" size="3" id="tirajComponenti" value="#{createEntity.componenta.tirajComponenti}">
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:spinner>
+                <h:outputLabel for="ajax" value="Совместная печать"/>
+                <p:inplace id="ajax" editor="true">
+                    <p:inputText value="Тест" required="true" label="text"/>
+                </p:inplace>
+                <p:outputLabel value="Количество полос" for="colPolos"/>
+                <p:spinner id="colPolos" min="2" max="#{createEntity.maxFormat()}" size="3" stepFactor="2"
+                           value="#{createEntity.componenta.colPolos}">
+                    <p:ajax listener="#{createEntity.saveMethod}" update="formati, koreshok, koreshok1"/>
+                </p:spinner>
+
+                <p:outputLabel value="Формат"/>
+
+                <h:panelGrid id="formati" columns="7">
+                    <p:spinner min="100" size="3" id="format1Componenti"
+                               value="#{createEntity.componenta.format1Componenti}">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                    <p:separator style="width:8px;height:25px" rendered="#{createEntity.koreshokRavno1()}"/>
+                    <p:spinner min="100" size="3" id="format2Componenti"
+                               value="#{createEntity.componenta.format2Componenti}">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                    <p:separator style="width:8px;height:25px" rendered="#{createEntity.koreshokRavno2()}"/>
+                    <p:spinner min="100" size="3" id="format3Componenti"
+                               value="#{createEntity.componenta.format3Componenti}"
+                               rendered="#{createEntity.addFormat()}">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                    <p:separator style="width:8px;height:25px" rendered="#{createEntity.koreshokRavno3()}"/>
+                    <p:spinner min="100" size="3" id="format4Componenti"
+                               value="#{createEntity.componenta.format4Componenti}"
+                               rendered="#{createEntity.addFormat2()}">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                    <p:separator style="width:8px;height:25px" rendered="#{createEntity.koreshokRavno4()}"/>
+                    <p:spinner min="100" size="3" id="format5Componenti"
+                               value="#{createEntity.componenta.format5Componenti}"
+                               rendered="#{createEntity.addFormat3()}">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                    <p:separator style="width:8px;height:25px" rendered="#{createEntity.koreshokRavno5()}"/>
+                    <p:spinner min="100" size="3" id="format6Componenti"
+                               value="#{createEntity.componenta.format6Componenti}"
+                               rendered="#{createEntity.addFormat4()}">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                </h:panelGrid>
+
+
+                <h:panelGrid id="koreshok" columns="4">
+                    <p:outputLabel value="Корешок" rendered="#{createEntity.addFormat()}"/>
+                    <p:spinner min="1" size="5"
+                               max="#{(createEntity.componenta.colPolos-2)/2}"
+                               value="#{createEntity.componenta.koreshok}"
+                               rendered="#{createEntity.addFormat()}">
+                        <p:ajax update="formati" listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+                </h:panelGrid>
+                <h:panelGrid id="koreshok1" columns="2">
+                    <p:outputLabel value="Тип фальца" rendered="#{createEntity.addFormat()}"/>
+                    <p:selectOneMenu rendered="#{createEntity.addFormat()}">
+                        <f:selectItem itemLabel="---" itemValue=""/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Дата прихода" for="dataPolycheniy"
+                                   rendered="#{createEntity.componenta.davalcheskoe}"/>
+                    <p:outputLabel value="Дата сдачи материалов" for="dataPolycheniy"
+                                   rendered="#{!createEntity.componenta.davalcheskoe}"/>
+
+                </h:panelGrid>
+                <p:calendar id="dataPolycheniy" value="#{createEntity.bufData1}"
+                            pattern="dd.MM.yyyy"
+                            mask="true" size="15">
+                    <p:ajax event="blur" listener="#{createEntity.saveMethod}"/>
+                </p:calendar>
+            </h:panelGrid>
+            <p:separator style="width:1px;height:200px" rendered="#{!createEntity.componenta.davalcheskoe}"/>
+
+            <h:panelGrid>
+
+
+                <h:panelGrid columns="2" id="daval">
+
+
+                    <p:outputLabel value="Давальческое" for="davalcheskoe"/>
+                    <p:inputSwitch onLabel="Да" offLabel="Нет" id="davalcheskoe"
+                                   value="#{createEntity.componenta.davalcheskoe}">
+                        <p:ajax listener="#{createEntity.chDavalcheskoe}"
+                                update="panelComponenti, daval, dialogComponentiTree, leftTreeComponenti"/>
+                    </p:inputSwitch>
+                </h:panelGrid>
+
+                <h:panelGrid id="printing" rendered="#{!createEntity.componenta.davalcheskoe}"
+                             layout="grid">
+                    <h:panelGrid columns="3">
+                        <p:outputLabel value="Красочность"/>
+
+                        <p:inputText disabled="true" id="kraskiLico" size="3"
+                                     value="#{createEntity.componenta.kraskiComponentiLico}"/>
+                        <p:inputText disabled="true" id="kraskiOborot" size="3"
+                                     value="#{createEntity.componenta.kraskiComponentiOborot}"/>
+                    </h:panelGrid>
+                    <p:selectOneButton value="#{createEntity.componenta.tipKraski}">
+                        <f:selectItem itemLabel="HSWO" itemValue="HSWO"/>
+                        <f:selectItem itemLabel="CSWO" itemValue="CSWO"/>
+                        <f:selectItem itemLabel="Sheet" itemValue="Sheet"/>
+                        <p:ajax listener="#{createEntity.chTipPechati}" update="recomendacii"/>
+                    </p:selectOneButton>
+                    <h:panelGrid columns="2">
+                        <p:selectManyButton value="#{createEntity.kraskiComponentiLico}">
+                            <f:selectItem itemLabel="C" itemValue="C"/>
+                            <f:selectItem itemLabel="M" itemValue="M"/>
+                            <f:selectItem itemLabel="Y" itemValue="Y"/>
+                            <f:selectItem itemLabel="K" itemValue="K"/>
+                            <p:ajax listener="#{createEntity.chColKrasok}" update="kraskiLico"/>
+                        </p:selectManyButton>
+                        <p:selectManyButton value="#{createEntity.kraskiComponentiOborot}">
+                            <f:selectItem itemLabel="C" itemValue="C"/>
+                            <f:selectItem itemLabel="M" itemValue="M"/>
+                            <f:selectItem itemLabel="Y" itemValue="Y"/>
+                            <f:selectItem itemLabel="K" itemValue="K"/>
+                            <p:ajax listener="#{createEntity.chColKrasok}" update="kraskiOborot"/>
+                        </p:selectManyButton>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="Pantone" for="colPantoni"/>
+                        <h:panelGrid id="colPantoni" columns="3">
+                            <p:spinner min="0" size="3" value="#{createEntity.componenta.colPantoniLico}">
+                                <p:ajax update="kraskiLico, leftTreeComponenti, dialogComponentiTree"
+                                        listener="#{createEntity.chColKrasok}"/>
+                            </p:spinner>
+
+                            <p:spinner min="0" size="3" id="colPantoniOborot"
+                                       value="#{createEntity.componenta.colPantoniOborot}">
+                                <p:ajax update="kraskiOborot, leftTreeComponenti, dialogComponentiTree"
+                                        listener="#{createEntity.chColKrasok}"/>
+                            </p:spinner>
+                        </h:panelGrid>
+
+                        <p:outputLabel value="Лакирование" for="colLak"/>
+                        <h:panelGrid id="colLak" columns="3">
+                            <p:spinner min="0" size="3" id="colLakLico" value="#{createEntity.componenta.colLakLico}">
+                                <p:ajax update="leftTreeComponenti, dialogComponentiTree"
+                                        listener="#{createEntity.chColLakov}"/>
+                            </p:spinner>
+
+                            <p:spinner min="0" size="3" id="colLakOborot"
+                                       value="#{createEntity.componenta.colLakOborot}">
+                                <p:ajax update="leftTreeComponenti, dialogComponentiTree"
+                                        listener="#{createEntity.chColLakov}"/>
+                            </p:spinner>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="Отделка компонентов" for="otdelkaComponenti"/>
+                        <p:inputSwitch onLabel="Да" offLabel="Нет" id="otdelkaComponenti"
+                                       value="#{createEntity.componenta.otdelkaComponenti}">
+                            <p:ajax update="leftTreeComponenti, dialogComponentiTree"
+                                    listener="#{createEntity.addOtdelkiComponenti}"/>
+                        </p:inputSwitch>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:panelGrid>
+        <p:panel header="Крепление">
+            <ui:include src="componentiCreplenie.xhtml"/>
+        </p:panel>
+        <p:panel header="Рекомендации">
+            <h:panelGrid id="recomendacii" columns="4">
+                <p:outputLabel value="Рекомендованое оборудование" for="recomOborydovanie"/>
+                <p:selectOneMenu id="recomOborydovanie" value="#{createEntity.componenta.recomOborydovanie}">
+                    <f:selectItems value="#{createEntity.spisokRecomObor}" var="spisok" itemLabel="#{spisok}"
+                                   itemValue="#{spisok}"/>
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Спуск" for="oborot"/>
+                <p:selectOneMenu id="oborot" value="#{createEntity.componenta.oborot}">
+                    <f:selectItem itemLabel="---" itemValue="---"/>
+                    <f:selectItem itemLabel="Свой" itemValue="Свой"/>
+                    <f:selectItem itemLabel="Чужой" itemValue="Чужой"/>
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Количество первых приладок" for="colPervixPriladok"/>
+                <p:spinner id="colPervixPriladok" value="#{createEntity.componenta.colPervixPriladok}">
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:spinner>
+
+                <p:outputLabel value="Количество форм" for="colForm"/>
+                <p:spinner id="colForm" value="#{createEntity.componenta.colForm}">
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:spinner>
+            </h:panelGrid>
+
+        </p:panel>
+        <p:panel header="Контроль качества">
+            <h:panelGrid columns="8">
+                <p:outputLabel value="Цветопроба(да/нет)" for="cvetoproba"/>
+                <p:inputSwitch onLabel="Да" offLabel="Нет" id="cvetoproba"
+                               value="#{createEntity.componenta.cvetoproba}">
+                    <p:ajax listener="#{createEntity.saveMethod}" update="cvetoProba"/>
+                </p:inputSwitch>
+
+                <p:outputLabel value="Макет" for="maketComponenti"/>
+                <p:inputSwitch onLabel="Да" offLabel="Нет" id="maketComponenti"
+                               value="#{createEntity.componenta.maketComponenti}">
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:inputSwitch>
+
+                <p:outputLabel value="Образец цвета" for="obrazeccveta"/>
+                <p:inputSwitch onLabel="Да" offLabel="Нет" id="obrazeccveta"
+                               value="#{createEntity.componenta.obrazeccveta}">
+                    <p:ajax update="obrazecCvetaPanel" listener="#{createEntity.saveMethod}"/>
+                </p:inputSwitch>
+
+                <p:outputLabel value="Заказчик на печать" for="zakazchikNaPechat"/>
+                <p:inputSwitch onLabel="Да" offLabel="Нет" id="zakazchikNaPechat"
+                               value="#{createEntity.componenta.zakazchikNaPechat}">
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:inputSwitch>
+            </h:panelGrid>
+            <p:separator/>
+            <h:panelGrid id="cvetoProba" columns="4">
+                <p:outputLabel rendered="#{createEntity.componenta.cvetoproba}" value="Владелец цветопробы"
+                               for="cvetoprobaComponentiVadelec"/>
+                <p:inputText rendered="#{createEntity.componenta.cvetoproba}" id="cvetoprobaComponentiVadelec"
+                             value="#{createEntity.componenta.cvetoprobaComponentiVadelec}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+
+                <p:outputLabel rendered="#{createEntity.componenta.cvetoproba}" value="Количество цветопроб"
+                               for="colCvetoprob"/>
+                <p:inputText rendered="#{createEntity.componenta.cvetoproba}" id="colCvetoprob"
+                             value="#{createEntity.componenta.colCvetoprob}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+
+                <p:outputLabel rendered="#{createEntity.componenta.cvetoproba}" value="Формат цветопроб"
+                               for="formatCvetoprob"/>
+                <p:inputText rendered="#{createEntity.componenta.cvetoproba}" id="formatCvetoprob"
+                             value="#{createEntity.componenta.formatCvetoprob}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+
+                <p:outputLabel rendered="#{createEntity.componenta.cvetoproba}" value="Полосы цветопроб"
+                               for="polosiCvetoprob"/>
+                <p:inputText rendered="#{createEntity.componenta.cvetoproba}" id="polosiCvetoprob"
+                             value="#{createEntity.componenta.polosiCvetoprob}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+
+                <p:outputLabel rendered="#{createEntity.componenta.cvetoproba}" value="Дата прихода цветопроб"
+                               for="dataPrixodaCvetoprobi"/>
+                <p:calendar rendered="#{createEntity.componenta.cvetoproba}" id="dataPrixodaCvetoprobi"
+                            value="#{createEntity.bufData2}"
+                            pattern="dd.MM.yyyy">
+                    <p:ajax event="blur" listener="#{createEntity.showDate2}"/>
+                </p:calendar>
+            </h:panelGrid>
+
+            <h:panelGrid id="obrazecCvetaPanel" columns="4">
+                <p:outputLabel value="Владелец образца" for="vladelecObrazcaCveta"
+                               rendered="#{createEntity.componenta.obrazeccveta}"/>
+                <p:inputText id="vladelecObrazcaCveta" value="#{createEntity.componenta.vladelecObrazcaCveta}"
+                             rendered="#{createEntity.componenta.obrazeccveta}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+
+                <p:outputLabel value="Полосы образца" for="polosiObrzcaCveta"
+                               rendered="#{createEntity.componenta.obrazeccveta}"/>
+                <p:inputText id="polosiObrzcaCveta" value="#{createEntity.componenta.polosiObrzcaCveta}"
+                             rendered="#{createEntity.componenta.obrazeccveta}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+
+            </h:panelGrid>
+            <h:panelGrid id="polosiStikovPanel" columns="2">
+                <p:outputLabel value="Полосы стыков" for="polosiStikov"/>
+                <p:inputText id="polosiStikov" value="#{createEntity.componenta.polosiStikov}">
+                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                </p:inputText>
+            </h:panelGrid>
+        </p:panel>
+    </h:panelGrid>
+</h:body>
+</html>

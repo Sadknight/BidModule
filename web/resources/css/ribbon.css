@@ -1,0 +1,149 @@
+.uiMy-ribbon {
+    font-size: 11px;
+    padding: 0;
+}
+
+.uiMy-ribbon .uiMy-tabs-panel {
+    padding: 0;
+}
+
+.uiMy-ribbon .uiMy-ribbon-group {
+    float: left;
+    background: none;
+    border: none;
+    border-right: solid 1px #BCC7CF;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    padding: 0.2em;
+}
+
+.uiMy-ribbon .uiMy-ribbon-group .uiMy-ribbon-group-content {
+    height: 6em;
+    background: none;
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-width: 0;
+    padding: 0.2em 0.2em 0;
+}
+
+.uiMy-ribbon .uiMy-ribbon-group .uiMy-ribbon-group-label {
+    text-align: center;
+    font-weight: 400;
+    white-space: nowrap;
+    margin-top: -1px;
+    border-width: 1px 0 0;
+    color: #333333;
+}
+
+.uiMy-ribbon .uiMy-button {
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    color: #333;
+}
+
+.uiMy-ribbon .uiMy-colorpicker .uiMy-button {
+    height: 24px;
+}
+
+.uiMy-icon .uiMy-ribbonicon-new {
+    margin-left: -10px;
+    margin-top: -20px;
+    background-image: url("#{resource['/icon/add.png']}");
+}
+
+.uiMy-icon .uiMy-ribbonicon-save {
+    background-image: url("#{resource['/images/new.png']}");
+}
+
+.uiMy-icon .uiMy-ribbonicon-paste {
+    background-image: url("#{resource['/images/paste.png']}");
+}
+
+.uiMy-icon .uiMy-ribbonicon-cut {
+    background-image: url("#{resource['/images/cut.png']}");
+}
+
+.uiMy-icon .uiMy-ribbonicon-print {
+    background-image: url("#{resource['/images/print.png']}");
+}
+
+.uiMy-icon .uiMy-ribbonicon-zoomin {
+    background-image: url("#{resource['/images/zoomin.png']}");
+}
+
+.uiMy-icon .uiMy-ribbonicon-zoomout {
+    background-image: url("#{resource['demo/images/icon/zoomout.png']}");
+}
+
+.uiMy-ribbon-bigbutton {
+    background: none;
+    border: solid 1px transparent;
+    width: 3.5em;
+    height: 52px;
+    text-decoration: none;
+}
+
+.uiMy-ribbon-bigbutton .uiMy-icon {
+    height: 64px;
+    left: 50%;
+    margin-left: -17px;
+    margin-top: -24px;
+    width: 64px;
+}
+
+.uiMy-ribbon-bigbutton .uiMy-button-text {
+    padding: 3em 0 0;
+    font-size: 10px;
+}
+
+.uiMy-ribbon .uiMy-button, .uiMy-ribbon .uiMy-selectonemenu {
+    float: left;
+    margin: 1px 2px;
+}
+
+.uiMy-ribbon .uiMy-selectonemenu {
+    float: left;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.uiMy-ribbon .uiMy-buttonset .uiMy-button {
+    margin: 0;
+    margin-right: -1px;
+}
+
+.uiMy-ribbon .uiMy-inputfield {
+    background: none;
+    box-shadow: none;
+}
+
+.uiMy-ribbon .uiMy-selectonemenu.uiMy-state-default {
+    background: none;
+    box-shadow: none;
+}
+
+.uiMy-ribbon .uiMy-selectonemenu .uiMy-selectonemenu-trigger {
+    background-image: none;
+    box-shadow: none;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-radius: 0px;
+}
+
+.uiMy-ribbon-groups .uiMy-widget-content {
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%, rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(58%, rgba(255, 255, 255, 1)), color-stop(71%, rgba(249, 249, 249, 1)), color-stop(88%, rgba(237, 237, 237, 1)), color-stop(100%, rgba(232, 232, 232, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%, rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%, rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%, rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+    background: linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%, rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e8e8e8', GradientType=0);
+}
+

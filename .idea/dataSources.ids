@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="BidDB" uuid="09aeb29c-04d3-4f99-8a96-d5eef3e14b5d">
+    <database-info product="MySQL" version="5.6.16" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-commercial-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="bid"/>
+    <table name="broshyrovkapodizdaniya" schema="" catalog="bid" type="TABLE">
+      <column name="idbroshyrovkaPodizdaniya" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idPodizdaniya" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tirajBroshyrovki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="idOperaciiBroshyrovki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="priznakSkrepleniyaBroshyrovki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="oborydovanieBroshyrovki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idbroshyrovkaPodizdaniya"/>
+      <index name="idbroshyrovkaPodizdaniya_UNIQUE" unique="true" columns="idbroshyrovkaPodizdaniya"/>
+    </table>
+    <table name="bymaga" schema="" catalog="bid" type="TABLE">
+      <column name="idbymaga" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idComponenti" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="idbymaga"/>
+      <index name="idbymaga_UNIQUE" unique="true" columns="idbymaga"/>
+    </table>
+    <table name="componenti" schema="" catalog="bid" type="TABLE">
+      <column name="idComponenti" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavki" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tipComponenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nazvanieComponenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="davalcheskoe" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="dataPolycheniy" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="colPolos" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tirajComponenti" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="format1Componenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="format2Componenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kraskiComponentiLico" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="NA=="/>
+      <column name="kraskiComponentiOborot" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="NA=="/>
+      <column name="kraskiComponentiLicoN" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J0NNWUsn"/>
+      <column name="kraskiComponentiOborotN" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J0NNWUsn"/>
+      <column name="colPantoniLico" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="colPantoniOborot" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="colLakLico" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="colLakOborot" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="otdelkaComponenti" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="recomOborydovanie" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="oborot" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colPervixPriladok" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="colForm" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sposobSkrepleniya" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cvetoproba" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="cvetoprobaComponentiVadelec" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12" def="J9Cf0J/Qmic="/>
+      <column name="colCvetoprob" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="formatCvetoprob" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="polosiCvetoprob" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dataPrixodaCvetoprobi" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="obrazeccveta" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="vladelecObrazcaCveta" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12" def="J9Cf0J/Qmic="/>
+      <column name="polosiObrzcaCveta" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zakazchikNaPechat" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="stiki" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="polosiStikov" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="maketComponenti" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="colSpyskov" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="format3Componenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="format4Componenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="koreshok" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="format5Componenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="format6Componenti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mestoPolojenie" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MestoRaspolojenie" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colCapel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="polosaRaspolojeniya1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="polosaRaspolojeniya2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="mejdy" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="opredelennoeMesto" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="tipKraski" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idComponenti"/>
+      <index name="idcomponenti_UNIQUE" unique="true" columns="idComponenti"/>
+    </table>
+    <table name="contacts" schema="" catalog="bid" type="TABLE">
+      <column name="idcontacts" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="0JLQvdGD0YLRgNC10L3QuNC5INC90L7QvNC10YAg0LrQvtC90YLQsNC60YLQsA==" autoIncrement="true"/>
+      <column name="number_izd" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="dogovor" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="kontragent" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="FIO" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0KTQsNC80LjQu9C40Y8g0JjQvNGPINCe0YLRh9C10YHRgtCy0L4="/>
+      <column name="telefon" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0L3QvtC80LXRgCDRgtC10LvQtdGE0L7QvdCw"/>
+      <column name="mail" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0LXQvNC10LnQuw=="/>
+      <column name="bd" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="0JTQtdC90Ywg0YDQvtC20LTQtdC90LjRjw=="/>
+      <column name="comment_contacts" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0JrQvtC80LXQvdGC0LDRgNC40Lk="/>
+      <primary-key name="PRIMARY" columns="idcontacts"/>
+      <index name="idcontacts_UNIQUE" unique="true" columns="idcontacts"/>
+    </table>
+    <table name="dogovora" schema="" catalog="bid" type="TABLE">
+      <column name="iddogovora" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="0KHQuNGB0YLQtdC80L3Ri9C5INC90L7QvNC10YAg0LTQvtCz0L7QstC+0YDQsA==" autoIncrement="true"/>
+      <column name="client_number" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="client_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="number_list" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0J3QvtC80LXRgCDQu9C40YHRgtCwINGB0L7Qs9C70LDRgdC+0LLQsNC90LjRjw=="/>
+      <column name="reg_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="0JTQsNGC0LAg0YDQtdCz0LjRgdGC0YDQsNGG0LjQuA=="/>
+      <column name="reg_date_end" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="0JTQsNGC0LAg0L7QutC+0L3Rh9Cw0L3QuNGPINGB0L7Qs9C70LDRgdC+0LLQsNC90LjRjw=="/>
+      <column name="auto_prol" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" def="J3RydWUn" remarks="0JDRgtC+0LzQsNGC0LjRh9C10YHQutCw0Y8g0L/RgNC+0LvQvtC90LPQsNGG0LjRjw=="/>
+      <column name="user" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0J/QvtC70YzQt9C+0LLQsNGC0LXQu9GM"/>
+      <column name="number_dor" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="4oSWINCU0L7Qs9C+0LLQvtGA0LAgICjQn9Cf0Jov0JrQvtC90YLRgNCw0LPQtdC90YIp"/>
+      <column name="date_begin" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="0JTQsNGC0LAg0L3QsNGH0LDQu9CwINC00L7Qs9C+0LLQvtGA0LA="/>
+      <column name="date_end" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="0JTQsNGC0LAg0L7QutC+0L3Rh9Cw0L3QuNGPINC00L7Qs9C+0LLQvtGA0LA="/>
+      <column name="tip_dogovor" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vid" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0JLQuNC0INC00L7Qs9C+0LLQvtGA0LA="/>
+      <column name="predmet" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0J/RgNC10LTQvNC10YIg0LTQvtCz0L7QstC+0YDQsA=="/>
+      <column name="giper_ssilka" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12" remarks="0JPQuNC/0LXRgNGB0YHRi9C70LrQsA=="/>
+      <column name="comment_dogovora" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0JrQvtC80LXQvdGC0LDRgNC40Lk="/>
+      <column name="ysloviya" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="otvetstvenostBymaga" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kyrs" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="marja1" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="marja2" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="baseSpec" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="iddogovora"/>
+      <index name="id_dogovora_UNIQUE" unique="true" columns="iddogovora"/>
+    </table>
+    <table name="dopizdelie" schema="" catalog="bid" type="TABLE">
+      <column name="idDopizdelie" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idKontragenta" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="commentIzdanie" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colComponent" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="colPodizdanii" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MQ=="/>
+      <column name="ManagerCreat" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dateBegin" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="dateEnd" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="tipIzdeliya" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="format1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="format2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tiraj" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="operaciiSIzdeliem" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="maketIzdaniya" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="idDopizdelie"/>
+      <index name="idDopizdelie_UNIQUE" unique="true" columns="idDopizdelie"/>
+    </table>
+    <table name="dostavka" schema="" catalog="bid" type="TABLE">
+      <column name="iddostavka" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idykladkaNaPaleti" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tirajDostavki" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="dataOtgryzkiDostavki" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="companiyaDostavki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="adresDostavki" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="kontaktDostavki" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="iddostavka"/>
+      <index name="iddostavka_UNIQUE" unique="true" columns="iddostavka"/>
+    </table>
+    <table name="dostavkasignalov" schema="" catalog="bid" type="TABLE">
+      <column name="iddostavkaSignalov" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idoperaciiSGotovimIzdeliem" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="dataSignalov" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="companySignali" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="adresSignalov" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="contactSignalov" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="iddostavkaSignalov"/>
+      <index name="iddostavkaSignalov_UNIQUE" unique="true" columns="iddostavkaSignalov"/>
+    </table>
+    <table name="id_kontragentov" schema="" catalog="bid" type="TABLE">
+      <column name="idagenta" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="0J3QvtC80LXRgCDQutC70LjQtdC90YLQsA==" autoIncrement="true"/>
+      <column name="client_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0J3QsNC40LzQtdC90L7QstCw0L3QuNC1INC+0YDQs9Cw0L3QuNC30LDRhtC40Lg="/>
+      <column name="number_1c" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0L3QvtC80LXRgCDQutC+0L3RgtGA0LDQs9C10L3RgtCwINCyIDHQoQ=="/>
+      <column name="zakazchik" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" def="J9C00LAn" remarks="0JfQsNC60LDQt9GH0LjQug=="/>
+      <column name="podryad" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" def="J9C90LXRgic="/>
+      <column name="postavschik" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" def="J9C90LXRgic="/>
+      <column name="arendator" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" def="J9C90LXRgic="/>
+      <column name="INN" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="0JjQndCd"/>
+      <column name="Ur_adres" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12" remarks="0K7RgNC40LTQuNGH0LXRgdC60LjQuSDQsNC00YDQtdGB"/>
+      <column name="Fact_adres" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12" remarks="0KTQsNC60YLQuNGH0LXRgdC60LjQuSDQsNC00YDQtdGB"/>
+      <column name="Director" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0LPQtdC90LXRgNCw0LvRjNC90YvQuSDQtNC40YDQtdC60YLQvtGA"/>
+      <column name="date_rojdeniya" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="0JTQsNGC0LAg0YDQvtC20LTQtdC90LjRjyDQk9C10L0uINC00LjRgNC10LrRgtC+0YDQsA=="/>
+      <column name="telefon" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0YLQtdC70LXRhNC+0L0="/>
+      <column name="fax" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0YTQsNC60YE="/>
+      <column name="www" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0YHQsNC50YI="/>
+      <column name="e_mail" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0LXQvNC10LnQuw=="/>
+      <column name="tip_agenta" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J9CX0LDQutCw0LfRh9C40Lon" remarks="0KLQuNC/INC00LXRj9GC0LXQu9GM0L3QvtGB0YLQuCDQutC+0L3RgtGA0LDQs9C10L3RgtCw"/>
+      <column name="oblast" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0J7QsdC70LDRgdGC0Ywg0LTQtdC50YLQtdC70YzQvdC+0YHRgtC4INC+0YDQs9Cw0L3QuNC30LDRhtC40Lg="/>
+      <column name="napravlenie_deyatelnosti" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reiting" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="comment_agent" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0JrQvtC80LXQvdGC0LDRgNC40Lk="/>
+      <primary-key name="PRIMARY" columns="idagenta"/>
+      <index name="client_name_UNIQUE" unique="true" columns="client_name"/>
+      <index name="idagenta_UNIQUE" unique="true" columns="idagenta"/>
+    </table>
+    <table name="idzayavki" schema="" catalog="bid" type="TABLE">
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idKontragenta" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idDogovora" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idIzdanie" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="commentIzdanie" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colComponent" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="colPodizdanii" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MQ=="/>
+      <column name="numZayavki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="numCalkylyacii" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="numZakaza" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ManagerCreat" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dateBegin" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="dateEnd" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="tipIzdeliya" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="format1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="format2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tiraj" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="operaciiSIzdeliem" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="signali" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="maketIzdaniya" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="colDopIzdelii" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="nazvanieZakazchika" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nazvanieIzdaniya" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idZayavok"/>
+      <index name="id_UNIQUE" unique="true" columns="idZayavok"/>
+    </table>
+    <table name="lakirovanienamashine" schema="" catalog="bid" type="TABLE">
+      <column name="idlakirovanieLico" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idComponenti" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="licoORoborotLak" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vladelecLaka" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J9Cf0J/Qmic="/>
+      <column name="tipLakirovaniya" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tipLaka" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vidLaka" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="priznakLaka" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postavchikLaka" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dataPostavki" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="lakirovanieNaMashinecol" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idlakirovanieLico"/>
+      <index name="idlakirovanieLico_UNIQUE" unique="true" columns="idlakirovanieLico"/>
+    </table>
+    <table name="operaciisgotovimizdeliem" schema="" catalog="bid" type="TABLE">
+      <column name="idoperaciiSGotovimIzdeliem" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idbroshyrovkaPodizdaniya" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tirajOperacii" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="idOperaciiSGIzdeliem" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ispolnitelOperaciiSGizdeliem" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J9Cf0J/Qmic="/>
+      <column name="davalceskoeOSGI" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dataPrixodaMaterialov" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="idPodizdaniya" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="idoperaciiSGotovimIzdeliem"/>
+      <index name="idoperaciiSGotovimIzdeliem_UNIQUE" unique="true" columns="idoperaciiSGotovimIzdeliem"/>
+    </table>
+    <table name="otdelkacomponenti" schema="" catalog="bid" type="TABLE">
+      <column name="idotdelkaComponenti" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idComponenti" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="ispolnitelOtdelki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J9Cf0J/Qmic="/>
+      <column name="nameIspolniteliaOtdelki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="idOperaciiOtdelki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tirajOtdelki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="stoimostOtdelki" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="naimenovanieOtdelki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idotdelkaComponenti"/>
+      <index name="idotdelkaComponenti_UNIQUE" unique="true" columns="idotdelkaComponenti"/>
+    </table>
+    <table name="pantonespravochnik" schema="" catalog="bid" type="TABLE">
+      <column name="idpantoneSpravochnik" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="namePantona" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colorPantone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idpantoneSpravochnik"/>
+      <index name="idpantoneSpravochnik_UNIQUE" unique="true" columns="idpantoneSpravochnik"/>
+    </table>
+    <table name="pantoninamashine" schema="" catalog="bid" type="TABLE">
+      <column name="idpantoniNaMashine" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idComponenti" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="licoOroborotPantoni" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vladelecPantona" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J9Cf0J/Qmic="/>
+      <column name="nomerPantona" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="naimenovaniPantona" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="procentZapechatkiPantona" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="postavshikPantone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dataPostavkiPantona" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="idpantoniNaMashine"/>
+      <index name="idpantoniNaMashine_UNIQUE" unique="true" columns="idpantoniNaMashine"/>
+    </table>
+    <table name="podizdaniya" schema="" catalog="bid" type="TABLE">
+      <column name="idPodizdaniya" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="commentPodizdaniya" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tirajPodizdaniya" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="operaciiSPodizdaniem" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="signaliPodizdanie" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="maketPodizdaniya" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="sostavPodizdaniya" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colYpakovok" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="otgryzka" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="idPodizdaniya"/>
+      <index name="idPodizdaniya_UNIQUE" unique="true" columns="idPodizdaniya"/>
+    </table>
+    <table name="reestr_izdanii" schema="" catalog="bid" type="TABLE">
+      <column name="idreestr_izdanii" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="0J3QvtC80LXRgCDQuNC30LTQsNC90LjRjw==" autoIncrement="true"/>
+      <column name="id_dogovora" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="0KHQuNGB0YLQtdC80L3Ri9C5INC90L7QvNC10YAg0LTQvtCz0L7QstC+0YDQsA=="/>
+      <column name="id_kontr_agent" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="name_izd" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0J3QsNC30LLQsNC90LjQtSDQuNC30LTQsNC90LjRjw=="/>
+      <column name="periodichnost" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0J/QtdGA0LjQvtC00LjRh9C90L7RgdGC0Yw="/>
+      <column name="ca" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0KbQtdC70LXQstC+0LUg0L3QsNC30L3QsNGH0LXQvdC40LUg0LjQt9C00LDQvdC40Y8="/>
+      <column name="tema" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0KLQtdC80LDRgtC40LrQsA=="/>
+      <column name="auditoria" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0KbQtdC70LXQstCw0Y8g0LPRgNGD0L/Qv9Cw"/>
+      <column name="construction" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0JzQsNGC0LXRgNC40LDQu9GM0L3QsNGPINC60L7QvdGB0YLRgNGD0LrRhtC40Y8="/>
+      <column name="comment_izdanii" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="0JrQvtC80LXQvdGC0LDRgNC40Lk="/>
+      <column name="clientname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idreestr_izdanii"/>
+      <index name="idreestr_izdanii_UNIQUE" unique="true" columns="idreestr_izdanii"/>
+    </table>
+    <table name="spyski" schema="" catalog="bid" type="TABLE">
+      <column name="idspyski" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idComponenti" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="idspyski"/>
+      <index name="idspyski_UNIQUE" unique="true" columns="idspyski"/>
+    </table>
+    <table name="ykladkanapaleti" schema="" catalog="bid" type="TABLE">
+      <column name="idykladkaNaPaleti" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idypakovkaGotovogoIzdeliya" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tirajYkladkiPachek" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="vidPaletiYkladki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="maxColNaPalete" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="maxVesYkladki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="maxVisotaYkladki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="colPaletYkladki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="standartnayaYpakovkaYkladka" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="kartonieYgolkiYkladki" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="kartonayaKrishkaYkladki" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="derevynnayaKrishkaYkladki" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="strepingYkladki" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="colDostavok" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="idykladkaNaPaleti"/>
+      <index name="idykladkaNaPaleti_UNIQUE" unique="true" columns="idykladkaNaPaleti"/>
+    </table>
+    <table name="ypakovkagotovogoizdeliya" schema="" catalog="bid" type="TABLE">
+      <column name="idypakovkaGotovogoIzdeliya" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="idZayavok" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="idoperaciiSGotovimIzdeliem" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tirajYpakovki" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="colVPachkeYpakovki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tipYpakovki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tipObvyzkiYpakovki" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colYkladok" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="idypakovkaGotovogoIzdeliya"/>
+      <index name="idypakovkaGotovogoIzdeliya_UNIQUE" unique="true" columns="idypakovkaGotovogoIzdeliya"/>
+    </table>
+  </data-source>
+</component>

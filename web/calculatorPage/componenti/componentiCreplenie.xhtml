@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Способ крепления" for="sposobSkrepleniya"/>
+        <p:selectOneMenu id="sposobSkrepleniya" value="#{createEntity.componenta.sposobSkrepleniya}">
+            <f:selectItem itemLabel="Без крепления" itemValue="Без крепления"/>
+            <f:selectItem itemLabel="Супер точка" itemValue="Супер точка"/>
+            <f:selectItem itemLabel="На каплю" itemValue="На каплю"/>
+            <f:selectItem itemLabel="На скотч" itemValue="На скотч"/>
+            <f:selectItem itemLabel="Полоска клея" itemValue="Полоска клея"/>
+            <f:selectItem itemLabel="Самоклеющаяся основа" itemValue="Самоклеющаяся основа"/>
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:selectOneMenu>
+        <p:outputLabel value="количество"/>
+        <p:inputText value="#{createEntity.componenta.colCapel}">
+            <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+        </p:inputText>
+        <p:outputLabel value="Место расположение"/>
+        <h:panelGrid columns="6">
+            <p:selectOneMenu value="#{createEntity.componenta.mestoPolojenie}">
+                <f:selectItem itemLabel="Обложка" itemValue="Обложка"/>
+                <f:selectItem itemLabel="Блок" itemValue="Блок"/>
+                <f:selectItem itemLabel="Обложка V Блок" itemValue="Обложка V Блок"/>
+                <f:selectItem itemLabel="Блок V Обложка" itemValue="Блок V Обложка"/>
+                <p:ajax listener="#{createEntity.saveMethod}"/>
+            </p:selectOneMenu>
+            <p:inputText size="8" value="#{createEntity.componenta.polosaRaspolojeniya1}">
+                <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+            </p:inputText>
+            <p:selectBooleanCheckbox id="mezjdy" value="#{createEntity.componenta.mejdy}">
+                <p:ajax listener="#{createEntity.saveMethod}"/>
+            </p:selectBooleanCheckbox>
+            <p:tooltip for="mezjdy" value="между"/>
+            <p:inputText size="8" value="#{createEntity.componenta.polosaRaspolojeniya2}">
+                <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+            </p:inputText>
+            <p:selectBooleanCheckbox id="mesto" value="#{createEntity.componenta.opredelennoeMesto}">
+                <p:ajax listener="#{createEntity.saveMethod}"/>
+            </p:selectBooleanCheckbox>
+            <p:tooltip for="mesto" value="определенное место"/>
+        </h:panelGrid>
+    </h:panelGrid>
+</h:body>
+</html>

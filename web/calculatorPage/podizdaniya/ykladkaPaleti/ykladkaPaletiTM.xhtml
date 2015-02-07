@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Вид паллеты" for="vidPaletiYkladki"/>
+        <p:selectOneMenu id="vidPaletiYkladki" value="#{createEntity.ykladka.vidPaletiYkladki}">
+            <f:selectItem itemLabel="Европаллет" itemValue="Европаллет"/>
+            <f:selectItem itemLabel="Финский паллет" itemValue="Финский паллет"/>
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Тираж" for="tirajYkladkiPachek" rendered="#{createEntity.showTiraj}"/>
+        <p:spinner min="1" id="tirajYkladkiPachek" value="#{createEntity.ykladka.tirajYkladkiPachek}"
+                   rendered="#{createEntity.showTiraj}">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+
+
+        <p:outputLabel value="Стандартная упаковка"
+                       for="standartnayaYpakovkaYkladka"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="standartnayaYpakovkaYkladka"
+                       value="#{createEntity.ykladka.standartnayaYpakovkaYkladka}">
+            <p:ajax update="nonStandart"/>
+        </p:inputSwitch>
+    </h:panelGrid>
+    <h:panelGrid columns="4" id="nonStandart">
+        <p:outputLabel value="Картонные уголки" for="kartonieYgolkiYkladki"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="kartonieYgolkiYkladki"
+                       value="#{createEntity.ykladka.kartonieYgolkiYkladki}"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+
+        <p:outputLabel value="Кортонная крышка"
+                       for="kartonayaKrishkaYkladki"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="kartonayaKrishkaYkladki"
+                       value="#{createEntity.ykladka.kartonayaKrishkaYkladki}"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+
+        <p:outputLabel value="Деревянная кышка"
+                       for="derevynnayaKrishkaYkladki"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="derevynnayaKrishkaYkladki"
+                       value="#{createEntity.ykladka.derevynnayaKrishkaYkladki}"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+
+        <p:outputLabel value="Стрепинг лента" for="strepingYkladki"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="strepingYkladki"
+                       value="#{createEntity.ykladka.strepingYkladki}"
+                       rendered="#{!createEntity.ykladka.standartnayaYpakovkaYkladka}"/>
+    </h:panelGrid>
+    <p:panel header="Дополнительные условия">
+        <h:panelGrid columns="2">
+            <p:outputLabel value="Максимальное колличество экз. на паллете" for="maxColNaPalete"/>
+            <p:spinner min="1" id="maxColNaPalete" value="#{createEntity.ykladka.maxColNaPalete}">
+                <p:ajax listener="#{createEntity.saveMethod}"/>
+            </p:spinner>
+
+            <p:outputLabel value="Максимальные вес" for="maxVesYkladki"/>
+            <p:spinner min="1" id="maxVesYkladki" value="#{createEntity.ykladka.maxVesYkladki}">
+                <p:ajax listener="#{createEntity.saveMethod}"/>
+            </p:spinner>
+
+            <p:outputLabel value="Максимальная высота" for="maxVisotaYkladki"/>
+            <p:spinner min="1" id="maxVisotaYkladki" value="#{createEntity.ykladka.maxVisotaYkladki}">
+                <p:ajax listener="#{createEntity.saveMethod}"/>
+            </p:spinner>
+
+            <p:outputLabel value="Количество паллет" for="colPaletYkladki"/>
+            <p:spinner min="1" id="colPaletYkladki">
+            </p:spinner>
+        </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+    <p:panelGrid columns="4" style="padding: inherit;">
+        <p:outputLabel value="Название организации"/>
+        <h:panelGrid columns="2">
+            <p:selectOneMenu>
+                <f:selectItem itemLabel="ООО" itemValue="ООО"/>
+                <f:selectItem itemLabel="ЗАО" itemValue="ЗАО"/>
+                <f:selectItem itemLabel="ОАО" itemValue="ОАО"/>
+                <!--<f:selectItem itemLabel="Блок" itemValue="Блок"/>-->
+                <!--<f:selectItem itemLabel="Блок перевёртышь" itemValue="Блок перевёртышь"/>-->
+                <!--<f:selectItem itemLabel="Вклейка" itemValue="Вклейка"/>-->
+                <!--<f:selectItem itemLabel="Вшивка(вставка)" itemValue="Вшивка(вставка)"/>-->
+
+                <!--<f:selectItem itemLabel="Давальческое изделие" itemValue="Давальческое изделие"/>-->
+                <!--<f:selectItem itemLabel="Промообразец" itemValue="Промообразец"/>-->
+            </p:selectOneMenu>
+            <p:inputText value="#{managerMenu.buferAgent.clientName}"/>
+        </h:panelGrid>
+        <p:outputLabel value="ИНН"/>
+        <p:inputMask value="#{managerMenu.buferAgent.inn}" mask="99999999?9999"/>
+        <p:outputLabel value="Заказчик"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.zakazchik}" onLabel="Да" offLabel="Нет"/>
+        <p:outputLabel value="Подрядчик"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.podryad}" onLabel="Да" offLabel="Нет"/>
+
+        <p:outputLabel value="Поставщик"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.postavschik}" onLabel="Да" offLabel="Нет"/>
+        <p:outputLabel value="Прочее"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.arendator}" onLabel="Да"
+                               offLabel="Нет"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+        <p:outputLabel value="Юридический адрес"/>
+        <p:inputTextarea value="#{managerMenu.buferAgent.urAdres}"/>
+
+        <p:outputLabel value="Фактический адрес"/>
+        <p:inputTextarea value="#{managerMenu.buferAgent.factAdres}"/>
+        <p:outputLabel value="ФИО директора"/>
+        <p:inputText value="#{managerMenu.buferAgent.director}"/>
+
+        <p:outputLabel value="Дата рождения"/>
+        <p:calendar value="#{managerMenu.buferAgent.dateRojdeniya}">
+            <f:convertDateTime pattern="dd/MM/yyyy"/>
+        </p:calendar>
+
+
+        <p:outputLabel value="Телефон"/>
+        <p:inputMask value="#{managerMenu.buferAgent.telefon}" mask="(999) 999-9999? x99999"/>
+
+        <p:outputLabel value="Факс"/>
+        <p:inputMask value="#{managerMenu.buferAgent.fax}" mask="(999) 999-9999? x99999"/>
+
+        <p:outputLabel value="Сайт"/>
+        <p:inputText value="#{managerMenu.buferAgent.www}"/>
+
+        <p:outputLabel value="Эл. почта"/>
+        <p:inputText value="#{managerMenu.buferAgent.eMail}"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+        <p:outputLabel value="Тип агента"/>
+        <p:inputText value="#{managerMenu.buferAgent.tipAgenta}"/>
+
+        <p:outputLabel value="Область деятельности"/>
+        <p:inputText value="#{managerMenu.buferAgent.oblast}"/>
+
+        <p:outputLabel value="Направление деятельности"/>
+        <p:inputText value="#{managerMenu.buferAgent.napravlenieDeyatelnosti}"/>
+
+        <p:outputLabel value="Рейтинг"/>
+        <p:rating value="#{managerMenu.buferAgent.reiting}"/>
+
+        <p:outputLabel value="Комментарий"/>
+        <p:inputText value="#{managerMenu.buferAgent.commentAgent}"/>
+
+    </p:panelGrid>
+</f:view>
+</html>
+
+
+

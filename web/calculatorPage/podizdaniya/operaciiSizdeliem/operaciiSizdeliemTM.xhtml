@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+</head>
+<h:body>
+
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Количество операций"/>
+        <p:spinner value="#{createEntity.colOperacii}">
+            <p:ajax listener="#{createEntity.chColOperacii}"
+                    update="panelOperacii, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"/>
+        </p:spinner>
+    </h:panelGrid>
+    <p:tabView id="panelOperacii" activeIndex="#{createEntity.indexOperacii}">
+        <c:forEach begin="0" var="i" end="#{createEntity.operaciiNadIzdeliem.size()-1}">
+            <p:tab title="#{createEntity.operaciiNadIzdeliem[i].idOperaciiSgIzdeliem}">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Тираж операции" for="tirajOperacii${i}"/>
+                    <p:inputText id="tirajOperacii${i}" value="#{createEntity.operaciiNadIzdeliem[i].tirajOperacii}"/>
+
+                    <p:outputLabel value="ИД операции"
+                                   for="idOperaciiSGIzdeliem${i}"/>
+                    <p:inputText id="idOperaciiSGIzdeliem${i}"
+                                 value="#{createEntity.operaciiNadIzdeliem[i].idOperaciiSgIzdeliem}"/>
+
+                    <p:outputLabel value="Исполнитель"
+                                   for="ispolnitelOperaciiSGizdeliem${i}"/>
+                    <p:inputText id="ispolnitelOperaciiSGizdeliem${i}"
+                                 value="#{createEntity.operaciiNadIzdeliem[i].ispolnitelOperaciiSGizdeliem}"/>
+
+                    <p:outputLabel value="Давальческое сырье" for="davalceskoeOSGI${i}"/>
+                    <p:inputText id="davalceskoeOSGI${i}"
+                                 value="#{createEntity.operaciiNadIzdeliem[i].davalceskoeOsgi}"/>
+
+                    <p:outputLabel value="Дата прихода"
+                                   for="dataPrixodaMaterialov${i}"/>
+                    <p:inputText id="dataPrixodaMaterialov${i}"
+                                 value="#{createEntity.operaciiNadIzdeliem[i].dataPrixodaMaterialov}">
+                        <f:convertDateTime pattern="HH:mm dd.MM.yyyy"/>
+                    </p:inputText>
+                </h:panelGrid>
+            </p:tab>
+        </c:forEach>
+    </p:tabView>
+</h:body>
+</html>

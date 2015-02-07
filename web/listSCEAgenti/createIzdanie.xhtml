@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:panelGrid columns="4">
+        <p:outputLabel value="Название организации" for="clientname"/>
+        <p:selectOneMenu id="clientname"
+                         value="#{managerMenu.izdanii.clientname}"
+                         filter="true" filterMatchMode="contains"
+                         required="true"
+                         style="width: 235px">
+            <f:selectItem itemLabel="---" itemValue="-1"/>
+            <f:selectItems value="#{createEntity.zakazchikiList}"
+                           var="mIDZ"
+                           itemLabel="#{mIDZ.clientName}"
+                           itemValue="#{mIDZ.idagenta}"/>
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Номер договора" for="idDogovora"/>
+        <p:inputText id="idDogovora" value="#{managerMenu.izdanii.idDogovora}"/>
+
+        <p:outputLabel value="Название издания" for="nameIzd"/>
+        <p:inputText id="nameIzd" value="#{managerMenu.izdanii.nameIzd}"/>
+
+        <p:outputLabel value="Периодичность" for="periodichnost"/>
+        <p:selectOneMenu id="periodichnost"
+                         value="#{managerMenu.izdanii.periodichnost}"
+                         filter="true" filterMatchMode="contains">
+            <f:selectItem itemLabel="---" itemValue=""/>
+            <f:selectItem itemLabel="Ежедневное" itemValue="Ежедневное"/>
+            <f:selectItem itemLabel="Еженедельное" itemValue="Еженедельное"/>
+            <f:selectItem itemLabel="Ежемесячное" itemValue="Ежемесячное"/>
+            <f:selectItem itemLabel="Ежекватальное" itemValue="Ежекватальное"/>
+            <f:selectItem itemLabel="Ежегодное" itemValue="Ежегодное"/>
+        </p:selectOneMenu>
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+        <p:outputLabel value="Целевая аудитория" for="ca"/>
+        <p:inputText id="ca" value="#{managerMenu.izdanii.ca}"/>
+
+        <p:outputLabel value="Тема" for="tema"/>
+        <p:inputText id="tema" value="#{managerMenu.izdanii.tema}"/>
+
+        <p:outputLabel value="Аудитория" for="auditoria"/>
+        <p:inputText id="auditoria" value="#{managerMenu.izdanii.auditoria}"/>
+
+        <p:outputLabel value="Материальная конструкция" for="construction"/>
+        <p:inputText id="construction" value="#{managerMenu.izdanii.construction}"/>
+
+        <p:outputLabel value="Комментарий" for="commentIzdanii"/>
+        <p:inputText id="commentIzdanii" value="#{managerMenu.izdanii.commentIzdanii}"
+                     title="#{bundle.CreateReestrIzdaniiTitle_commentIzdanii}"/>
+
+    </p:panelGrid>
+</f:view>
+</html>
+
+
+
+
+
+
+

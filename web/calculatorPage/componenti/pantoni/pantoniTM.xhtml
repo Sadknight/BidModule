@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:panel header="Лицо" rendered="#{createEntity.pantoniLico.size() > 0}">
+            <p:tabView id="panelPantoniLico" activeIndex="#{createEntity.indexPantoniLico}">
+                <p:ajax event="tabChange" listener="#{createEntity.onTabChangePantoniLico}" update="panelPantoniLico"/>
+                <c:forEach begin="0" var="i" end="#{createEntity.pantoniLico.size()-1}">
+                    <p:tab title="#{createEntity.pantoniLico[i].nomerPantona}"
+                           titleStyle="background-color: #{pantons.colorPantone};">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Номер пантона"/>
+                            <p:autoComplete value="#{createEntity.pantonLico}"
+                                            var="pantons"
+                                            itemLabel="#{pantons.namePantona}"
+                                            itemValue="#{pantons}"
+                                            converter="pantoneConverter"
+                                            completeMethod="#{createEntity.completePantoniLico}"
+                                            size="10"
+                                            dropdown="true">
+                                <p:ajax listener="#{createEntity.setPantoneLico}" event="itemSelect"
+                                        update="panelPantoniLico, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"/>
+                                <p:column style="background-color: #{pantons.colorPantone};">
+                                    <h:outputText/>
+                                </p:column>
+
+                                <p:column>
+                                    <h:outputText value="#{pantons.namePantona}"/>
+                                </p:column>
+                            </p:autoComplete>
+
+                            <p:outputLabel value="Запечатка(%)"/>
+                            <p:inputText value="#{createEntity.pantoniLico[i].procentZapechatkiPantona}">
+                                <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                            </p:inputText>
+                            <p:outputLabel value="Поставщик"/>
+                            <p:selectOneMenu value="#{createEntity.pantoniLico[i].vladelecPantona}">
+                                <f:selectItems value="#{createEntity.spisokPPKDav}" var="vladelec"
+                                               itemLabel="#{vladelec}" itemValue="#{vladelec}"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Производитель"/>
+                            <p:inplace editor="true" saveLabel="Выбирите">
+                                <p:inputText value="#{createEntity.pantoniLico[i].postavshikPantone}">
+                                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                                </p:inputText>
+                            </p:inplace>
+                            <p:outputLabel value="Дата прихода"/>
+                            <p:inputText value="#{createEntity.pantoniLico[i].dataPostavkiPantona}">
+                                <f:convertDateTime pattern="HH:mm dd.MM.yyyy"/>
+                            </p:inputText>
+                        </h:panelGrid>
+                    </p:tab>
+                </c:forEach>
+            </p:tabView>
+        </p:panel>
+        <p:panel header="Оборот" rendered="#{createEntity.pantoniOborot.size() > 0}">
+            <p:tabView id="tabPantoniOborot" activeIndex="#{createEntity.indexPantoniOborot}">
+                <p:ajax event="tabChange" listener="#{createEntity.onTabChangePantoniOborot}"
+                        update="tabPantoniOborot"/>
+                <c:forEach begin="0" var="i" end="#{createEntity.pantoniOborot.size()-1}">
+                    <p:tab title="#{createEntity.pantoniOborot[i].nomerPantona}">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Номер пантона"/>
+
+                            <p:autoComplete value="#{createEntity.pantonOborot}"
+                                            completeMethod="#{createEntity.completePantoniOborot}"
+                                            converter="pantoneConverter"
+                                            var="pantoni"
+                                            itemValue="#{pantoni}"
+                                            itemLabel="#{pantoni.namePantona}">
+                                <p:ajax listener="#{createEntity.setPantoneOborot}"
+                                        update="tabPantoniOborot, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"
+                                        event="itemSelect"/>
+                                <p:column style="background-color: #{pantoni.colorPantone};">
+                                    <h:outputText/>
+                                </p:column>
+
+                                <p:column>
+                                    <h:outputText value="#{pantoni.namePantona}"/>
+                                </p:column>
+                            </p:autoComplete>
+
+                            <p:outputLabel value="Запечатка(%)"/>
+                            <p:inputText value="#{createEntity.pantoniOborot[i].procentZapechatkiPantona}">
+                                <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                            </p:inputText>
+                            <p:outputLabel/>
+                            <p:selectOneMenu value="#{createEntity.pantoniOborot[i].vladelecPantona}">
+                                <f:selectItems value="#{createEntity.spisokPPKDav}" var="vladelec"
+                                               itemLabel="#{vladelec}" itemValue="#{vladelec}"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Производитель"/>
+                            <p:inplace editor="true" saveLabel="Выбирите">
+                                <p:inputText value="#{createEntity.pantoniOborot[i].postavshikPantone}">
+                                    <p:ajax listener="#{createEntity.saveMethod}" event="blur"/>
+                                </p:inputText>
+                            </p:inplace>
+                            <p:outputLabel value="Дата прихода"/>
+                            <p:inputText value="#{createEntity.pantoniOborot[i].dataPostavkiPantona}">
+                                <f:convertDateTime pattern="HH:mm dd.MM.yyyy"/>
+                            </p:inputText>
+                        </h:panelGrid>
+                    </p:tab>
+                </c:forEach>
+            </p:tabView>
+        </p:panel>
+    </h:panelGrid>
+
+</h:body>
+</html>

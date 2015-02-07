@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:panelGrid>
+    <p:dataTable var="agenti" value="#{managerMenu.spisokAgentov}"
+                 rows="10"
+                 paginator="true"
+                 selectionMode="single"
+                 rowKey="#{agenti.idagenta}">
+        <p:ajax event="rowSelect" listener="#{managerMenu.showAgenta}" update=":mainForm:mainRibbon"/>
+        <p:ajax event="rowUnselect" listener="#{managerMenu.hideAgenta}" update=":mainForm:mainRibbon"/>
+        <p:column headerText="id" filterBy="#{agenti.idagenta}" filterMatchMode="contains">
+            <h:outputText value="#{agenti.idagenta}"/>
+        </p:column>
+        <p:column headerText="Название" filterBy="#{agenti.clientName}" filterMatchMode="contains">
+            <h:outputText value="#{agenti.clientName}"/>
+        </p:column>
+        <p:column headerText="ИНН" filterBy="#{agenti.inn}" filterMatchMode="contains">
+            <h:outputText value="#{agenti.inn}"/>
+        </p:column>
+        <p:column headerText="Заказчик">
+            <p:selectBooleanButton value="#{agenti.zakazchik}" onLabel="Да" offLabel="Нет" disabled="true"/>
+        </p:column>
+
+        <p:column headerText="Подрядчик">
+            <p:selectBooleanButton value="#{agenti.podryad}" onLabel="Да" offLabel="Нет" disabled="true"/>
+        </p:column>
+
+        <p:column headerText="Поставщик">
+            <p:selectBooleanButton value="#{agenti.postavschik}" onLabel="Да" offLabel="Нет" disabled="true"/>
+        </p:column>
+        <p:column headerText="Прочее">
+            <p:selectBooleanButton value="#{agenti.arendator}" onLabel="Да" offLabel="Нет" disabled="true"/>
+        </p:column>
+    </p:dataTable>
+</h:panelGrid>
+</html>

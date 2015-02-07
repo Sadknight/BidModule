@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+        >
+
+<h:head>
+    <style type="text/css">
+        .ui-ribbon .ui-colorpicker .ui-button {
+            height: 24px;
+        }
+
+        .ui-icon.ui-ribbonicon-new {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/page_white_add.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-shablon {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/cog_add.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-saveshablon {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/database_save.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-obrzec {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/database1_add.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-podizdanie {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/book.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-componenti {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/document_image.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-addagent {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/group_add.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-showagent {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/group.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-editagent {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/group_edit.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-pencil {
+            margin-left: -7px;
+            margin-top: -8px;
+            background-image: url("#{resource['icon/pencil.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-undo {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/arrow_undo.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-lock {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/lock.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-mainPencil {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/pencil1.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-create {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/netvibes.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-save {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/accept.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-exit {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/cross.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-search {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/google_custom_search.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-tree {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/document_tree.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-newdogovor {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/script_add.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-showdogovor {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/script.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-edditdogovor {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/script_edit.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-newizdanie {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/book_add.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-showizdanie {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/book.png']}");
+        }
+
+        .ui-icon.ui-ribbonicon-edditizdanie {
+            margin-left: -15px;
+            margin-top: -15px;
+            background-image: url("#{resource['icon/book_edit.png']}");
+        }
+    </style>
+    <ui:insert name="title">
+        <title>Калькулятор</title>
+    </ui:insert>
+    <h:outputStylesheet library="css" name="default.css"/>
+    <h:outputStylesheet library="css" name="cssLayout.css"/>
+</h:head>
+<h:body>
+    <h:form id="mainForm">
+        <p:growl id="msg" showDetail="true"/>
+
+        <div id="top">
+            <ui:insert name="header">
+                <p:graphicImage value="../resources/images/logo1.png" rendered="true"/>
+            </ui:insert>
+        </div>
+        <div id="top1">
+            <ui:insert name="top1">
+
+            </ui:insert>
+        </div>
+        <div id="top2">
+            <ui:insert name="top2">
+                <p:sticky target="mainRibbon"/>
+                <p:ribbon id="mainRibbon" activeIndex="#{managerMenu.ribbonIndex}">
+                    <p:tab title="Заявка">
+                        <ui:include src="/ribbonElements/BidElements.xhtml"/>
+                    </p:tab>
+
+                    <p:tab title="Контрагенты" id="kontragentiRibbon">
+                        <ui:include src="/ribbonElements/agentElements.xhtml"/>
+                    </p:tab>
+                </p:ribbon>
+            </ui:insert>
+        </div>
+
+
+        <div id="content" class="right_content">
+            <ui:insert name="content">
+
+
+                <!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
+                <!-- <div> -->
+                <!-- <ui:include src="content.xhtml"/> -->
+                <!-- </div> -->
+            </ui:insert>
+        </div>
+
+        <!--<div id="footer">
+                <ui:insert name="footer">
+        Footer area.  See comments below this line in the source.
+          include your header file or uncomment the include below and create footer.xhtml in this directory -->
+        <!--<ui:include src="footer.xhtml"/>
+                </ui:insert>
+        </div>-->
+    </h:form>
+</h:body>
+
+</html>

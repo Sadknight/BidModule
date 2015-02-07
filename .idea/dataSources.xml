@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1682414026">
+    <data-source source="LOCAL" name="BidDB" uuid="09aeb29c-04d3-4f99-8a96-d5eef3e14b5d">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/bid</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://C:\Users\dmalenkov\Desktop\mysql-connector-java-commercial-5.1.31\mysql-connector-java.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>

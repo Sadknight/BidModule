@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:panelGrid columns="4">
+
+
+        <p:outputLabel value="Название организации" for="clientname" style="color: brown"/>
+        <p:outputLabel id="clientname" value="#{managerMenu.izdanii.clientname}"/>
+
+        <p:outputLabel value="Номер договора" for="idDogovora" style="color: brown"/>
+        <p:outputLabel id="idDogovora" value="#{managerMenu.izdanii.idDogovora}"/>
+
+        <p:outputLabel value="Название издания" for="nameIzd" style="color: brown"/>
+        <p:outputLabel id="nameIzd" value="#{managerMenu.izdanii.nameIzd}"/>
+
+        <p:outputLabel value="Периодичность" for="periodichnost" style="color: brown"
+                       rendered="#{managerMenu.izdanii.periodichnost != null}"/>
+        <p:outputLabel id="periodichnost" value="#{managerMenu.izdanii.periodichnost}"
+                       rendered="#{managerMenu.izdanii.periodichnost !=null}"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+        <p:outputLabel value="Целевая аудитория" for="ca" style="color: brown"
+                       rendered="#{managerMenu.izdanii.ca !=null}"/>
+        <p:outputLabel id="ca" value="#{managerMenu.izdanii.ca}" rendered="#{managerMenu.izdanii.ca != null}"/>
+
+        <p:outputLabel value="Тема" for="tema" style="color: brown" rendered="#{managerMenu.izdanii.tema != null}"/>
+        <p:outputLabel id="tema" value="#{managerMenu.izdanii.tema}" rendered="#{managerMenu.izdanii.tema != null}"/>
+
+        <p:outputLabel value="Аудитория" for="auditoria" style="color: brown"
+                       rendered="#{managerMenu.izdanii.auditoria != null}"/>
+        <p:outputLabel id="auditoria" value="#{managerMenu.izdanii.auditoria}"
+                       rendered="#{managerMenu.izdanii.auditoria != null}"/>
+
+        <p:outputLabel value="Материальная конструкция" for="construction" style="color: brown"
+                       rendered="#{managerMenu.izdanii.construction != null}"/>
+        <p:outputLabel id="construction" value="#{managerMenu.izdanii.construction}"
+                       rendered="#{managerMenu.izdanii.construction != null}"/>
+
+        <p:outputLabel value="Комментарий" for="commentIzdanii" style="color: brown"
+                       rendered="#{managerMenu.izdanii.commentIzdanii != null}"/>
+        <p:outputLabel id="commentIzdanii" value="#{managerMenu.izdanii.commentIzdanii}"
+                       rendered="#{managerMenu.izdanii.commentIzdanii != null}"/>
+
+    </p:panelGrid>
+</f:view>
+</html>

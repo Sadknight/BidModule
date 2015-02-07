@@ -1,0 +1,100 @@
+
+#top {
+    position: relative;
+    background-color: #E5074C;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#menu_top {
+    position: relative;
+    background-color: #E5074C;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+/*#left {*/
+/*float: left;*/
+/*background-color: #ece3a5;*/
+/*padding: 5px;*/
+/*}*/
+
+/*#bottom {*/
+/*position: relative;*/
+
+/*padding: 5px;*/
+/*margin: 2% 0px 0px 0px;*/
+/*}*/
+
+/*#right {*/
+/*float: right;*/
+/*background-color: #ece3a5;*/
+/*padding: 5px;*/
+/*width: 150px;*/
+/*}*/
+
+/*.center_content {*/
+/*position: relative;*/
+/*    background-color: #dddddd;*/
+/*padding: 5px;*/
+/*width: 150px;*/
+/*}*/
+
+/*.left_content {*/
+/*    background-color: #ece3a5;*/
+/*padding: 5px;*/
+/*margin-left: 10px;*/
+/*width: auto;*/
+/*}*/
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: auto;
+    height: auto;
+}
+
+/*#top a:link, #top a:visited {*/
+/*color: white;*/
+/*font-weight: bold;*/
+/*text-decoration: none;*/
+/*}*/
+
+/*#top a:link:hover, #top a:visited:hover {*/
+/*color: black;*/
+/*font-weight: bold;*/
+/*text-decoration: underline;*/
+/*}*/
+
+/*.left_content1 {*/
+/*float: left;*/
+/*background-color: #ece3a5;*/
+/*padding: 5px;*/
+/*width: 10%;*/
+/*}*/
+
+/*.right_content1 {*/
+/*float: left;*/
+/*    background-color: #dddddd;*/
+/*padding: 5px;*/
+/*width: 80%;*/
+/*}*/
+
+/*button {*/
+/*float: left;*/
+
+/*}*/
+
+/*.ice-blockui-overlay {*/
+/*position: absolute;*/
+/*background-color: white;*/
+/*z-index: 28000;*/
+/*opacity: 0.22;*/
+/*filter: alpha(opacity=22);*/
+/*}*/
+
+/*.font18 {*/
+/*font-size: 22px;*/
+/*}*/

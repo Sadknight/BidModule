@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BidModule:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/BidModule_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="BidModule/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BidModule" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Mojarra-2.2.1" />
+          <element id="library" level="application" name="org.hibernate:hibernate-entitymanager:4.3.6.Final" />
+          <element id="library" level="application" name="mysql-connector-java" />
+          <element id="library" level="project" name="all-themes-1.0.8" />
+          <element id="library" level="application" name="primefaces-5.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

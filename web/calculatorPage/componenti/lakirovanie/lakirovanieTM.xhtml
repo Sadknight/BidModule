@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:panel header="Лицо" rendered="#{createEntity.lakLico.size() >0}">
+            <p:tabView id="panelLakiLico" activeIndex="#{createEntity.indexLakovLico}">
+                <c:forEach begin="0" var="i" end="#{createEntity.lakLico.size()-1}">
+                    <p:tab title="#{createEntity.lakLico[i].tipLaka} #{createEntity.lakLico[i].vidLaka}">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Тип лака"/>
+                            <p:selectOneMenu value="#{createEntity.lakLico[i].tipLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="ВД" itemValue="ВД"/>
+                                <f:selectItem itemLabel="Маслянный" itemValue="Маслянный"/>
+                                <f:selectItem itemLabel="Праймер" itemValue="Праймер"/>
+                                <p:ajax update="panelLakiLico, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"
+                                        listener="#{createEntity.chTipLakaLico(i)}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Вид лака"/>
+                            <p:selectOneMenu value="#{createEntity.lakLico[i].vidLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="Gloss" itemValue="Gloss"/>
+                                <f:selectItem itemLabel="Matt" itemValue="Matt"/>
+                                <p:ajax update="panelLakiLico, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"
+                                        listener="#{createEntity.chTipLakaLico(i)}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Тип лакирования"/>
+                            <p:selectOneMenu value="#{createEntity.lakLico[i].tipLakirovaniya}" style="width: 130px">
+                                <f:selectItem itemLabel="Сплошной" itemValue="Сплошной"/>
+                                <f:selectItem itemLabel="Выборочный" itemValue="Выборочный"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+
+                            <p:outputLabel value="Признак"/>
+                            <p:selectOneMenu value="#{createEntity.lakLico[i].priznakLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="Арома" itemValue="Арома"/>
+                                <f:selectItem itemLabel="Пигментированный" itemValue="Пигментированный"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel/>
+                            <p:selectOneMenu value="#{createEntity.lakLico[i].vladelecLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="ППК" itemValue="ППК"/>
+                                <f:selectItem itemLabel="Давальческий" itemValue="Давальческий"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Поставщик лака"/>
+                            <p:inplace editor="true">
+                                <p:inputText value="#{createEntity.lakLico[i].postavchikLaka}"/>
+                            </p:inplace>
+                            <p:outputLabel value="Дата прихода"/>
+                            <p:inputText value="#{createEntity.lakLico[i].dataPostavki}">
+                                <f:convertDateTime pattern="HH:mm dd.MM.yyyy"/>
+                            </p:inputText>
+                        </h:panelGrid>
+                    </p:tab>
+                </c:forEach>
+            </p:tabView>
+        </p:panel>
+        <p:panel header="Оборот" rendered="#{createEntity.lakOborot.size() > 0}">
+            <p:tabView id="panelLakiOborot" activeIndex="#{createEntity.indexLakovOborot}">
+                <c:forEach begin="0" var="i" end="#{createEntity.lakOborot.size()-1}">
+                    <p:tab title="#{createEntity.lakOborot[i].tipLaka} #{createEntity.lakOborot[i].vidLaka}">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Тип лака"/>
+                            <p:selectOneMenu value="#{createEntity.lakOborot[i].tipLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="ВД" itemValue="ВД"/>
+                                <f:selectItem itemLabel="Маслянный" itemValue="Маслянный"/>
+                                <f:selectItem itemLabel="Праймер" itemValue="Праймер"/>
+                                <p:ajax update="panelLakiOborot, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"
+                                        listener="#{createEntity.chTipLakaOborot(i)}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Вид лака"/>
+                            <p:selectOneMenu value="#{createEntity.lakOborot[i].vidLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="Gloss" itemValue="Gloss"/>
+                                <f:selectItem itemLabel="Matt" itemValue="Matt"/>
+                                <p:ajax update="panelLakiOborot, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"
+                                        listener="#{createEntity.chTipLakaOborot(i)}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Тип лакирования"/>
+                            <p:selectOneMenu value="#{createEntity.lakOborot[i].vidLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="Сплошной" itemValue="Сплошной"/>
+                                <f:selectItem itemLabel="Выборочный" itemValue="Выборочный"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+
+                            <p:outputLabel value="Признак"/>
+                            <p:selectOneMenu value="#{createEntity.lakOborot[i].priznakLaka}" style="width: 130px">
+                                <f:selectItem itemLabel="Арома" itemValue="Арома"/>
+                                <f:selectItem itemLabel="Пигментированный" itemValue="Пигментированный"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Владелец лака"/>
+                            <p:selectOneMenu style="width: 130px" value="#{createEntity.lakOborot[i].vladelecLaka}">
+                                <f:selectItem itemLabel="ППК" itemValue="ППК"/>
+                                <f:selectItem itemLabel="Давальческий" itemValue="Давальческий"/>
+                                <p:ajax listener="#{createEntity.saveMethod}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Поставщик лака"/>
+                            <p:inplace editor="true">
+                                <p:inputText value="#{createEntity.lakOborot[i].postavchikLaka}"/>
+                            </p:inplace>
+                            <p:outputLabel/>
+                            <p:inputText value="#{createEntity.lakOborot[i].dataPostavki}">
+                                <f:convertDateTime pattern="HH:mm dd.MM.yyyy"/>
+                            </p:inputText>
+                        </h:panelGrid>
+                    </p:tab>
+                </c:forEach>
+            </p:tabView>
+        </p:panel>
+    </h:panelGrid>
+</h:body>
+</html>

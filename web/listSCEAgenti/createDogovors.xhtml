@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:panelGrid columns="4">
+
+        <p:outputLabel value="Название организации" for="clientName"/>
+        <p:selectOneMenu id="clientName"
+                         value="#{managerMenu.dogovora.clientName}"
+                         filter="true" filterMatchMode="contains"
+                         required="true"
+                         style="width: 235px">
+            <f:selectItem itemLabel="---" itemValue="-1"/>
+            <f:selectItems value="#{createEntity.zakazchikiList}"
+                           var="mIDZ"
+                           itemLabel="#{mIDZ.clientName}"
+                           itemValue="#{mIDZ.idagenta}"/>
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Тип договора" for="tipDogovor"/>
+        <p:selectOneMenu id="tipDogovor"
+                         value="#{managerMenu.dogovora.tipDogovor}"
+                         filter="true" filterMatchMode="contains">
+            <f:selectItem itemLabel="---" itemValue=""/>
+            <f:selectItem itemLabel="Покупки" itemValue="Покупки"/>
+            <f:selectItem itemLabel="Продажи" itemValue="Продажи"/>
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Вид договора" for="vid"/>
+
+        <p:selectOneMenu id="vid"
+                         value="#{managerMenu.dogovora.vid}"
+                         filter="true" filterMatchMode="contains">
+            <f:selectItem itemLabel="---" itemValue=""/>
+            <f:selectItem itemLabel="Оказание полиграфических услуг" itemValue="Оказание полиграфических услуг"/>
+            <f:selectItem itemLabel="Логистическо-складские услуги" itemValue="Логистическо-складские услуги"/>
+            <f:selectItem itemLabel="Бумага" itemValue="Бумага"/>
+            <f:selectItem itemLabel="Реализация макулатуры и отходов" itemValue="Реализация макулатуры и отходов"/>
+            <f:selectItem itemLabel="Полиграфические материалы" itemValue="Полиграфические материалы"/>
+            <f:selectItem itemLabel="Запасные части" itemValue="Запасные части"/>
+            <f:selectItem itemLabel="Оборудование и основные фонды" itemValue="Оборудование и основные фонды"/>
+            <f:selectItem itemLabel="Услуги" itemValue="Услуги"/>
+            <f:selectItem itemLabel="Прочее" itemValue="Прочее"/>
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Предмет договора" for="predmet"/>
+        <p:inputText id="predmet" value="#{managerMenu.dogovora.predmet}"
+                     title="#{bundle.CreateDogovoraTitle_predmet}"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+        <p:outputLabel value="Номер договора" for="numberDor"/>
+        <p:inputText id="numberDor" value="#{managerMenu.dogovora.numberDor}"
+                     title="#{bundle.CreateDogovoraTitle_numberDor}"/>
+        <p:outputLabel value="Автопролонгация" for="autoProl"/>
+        <p:selectBooleanButton id="autoProl" value="#{managerMenu.dogovora.autoProl}"
+                               title="#{bundle.CreateDogovoraTitle_autoProl}" onLabel="Да"
+                               offLabel="Нет"/>
+        <p:outputLabel value="Дата начала" for="dateBegin"/>
+        <p:calendar id="dateBegin" value="#{managerMenu.dogovora.dateBegin}"
+                    title="#{bundle.CreateDogovoraTitle_dateBegin}" pattern="dd/MM/yyyy">
+        </p:calendar>
+
+        <p:outputLabel value="Дата окончания" for="dateEnd"/>
+        <p:calendar id="dateEnd" value="#{managerMenu.dogovora.dateEnd}"
+                    title="#{bundle.CreateDogovoraTitle_dateEnd}" pattern="dd/MM/yyyy">
+        </p:calendar>
+
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+        <p:outputLabel value="Условия оплаты по договору" for="ysloviya"/>
+        <p:inputText id="ysloviya" value="#{managerMenu.dogovora.ysloviya}"/>
+
+        <p:outputLabel value="Наличие базовой спецификации" for="spec"/>
+        <p:selectBooleanButton id="spec" value="#{managerMenu.dogovora.baseSpec}" onLabel="Да"
+                               offLabel="Нет"/>
+
+        <p:outputLabel value="Ответственность  закзчика по бумаге (кол-во дней)" for="otvetst"/>
+        <p:inputText id="otvetst" value="#{managerMenu.dogovora.otvetstvenostBymaga}"/>
+
+        <p:outputLabel value="Курс контракта" for="kyrs"/>
+        <p:inputText id="kyrs" value="#{managerMenu.dogovora.kyrs}" title="если зафиксирован"/>
+
+        <p:outputLabel value="Базовые значения Маржи и ЕБИТДЫ" for="marja1"/>
+        <p:inputText id="marja1" value="#{managerMenu.dogovora.marja1}"/>
+
+        <p:outputLabel value="Изменение экономики в 2014 году Маржа, ЕБИТДА " for="marja2"/>
+        <p:inputText id="marja2" value="#{managerMenu.dogovora.marja2}"/>
+
+        <p:outputLabel/><p:outputLabel/><p:outputLabel/><p:outputLabel/>
+
+
+        <p:outputLabel value="Номер листа согласования" for="numberList"/>
+        <p:inputText id="numberList" value="#{managerMenu.dogovora.numberList}"
+                     title="#{bundle.CreateDogovoraTitle_numberList}"/>
+        <p:outputLabel value="Дата регистрации" for="regDate"/>
+        <p:calendar id="regDate" value="#{managerMenu.dogovora.regDate}"
+                    title="#{bundle.CreateDogovoraTitle_regDate}" pattern="dd/MM/yyyy">
+        </p:calendar>
+        <p:outputLabel value="Дата окончания регистрации" for="regDateEnd"/>
+        <p:calendar id="regDateEnd" value="#{managerMenu.dogovora.regDateEnd}"
+                    title="#{bundle.CreateDogovoraTitle_regDateEnd}" pattern="dd/MM/yyyy">
+        </p:calendar>
+
+
+        <p:outputLabel value="Гиппер ссылка" for="giperSsilka"/>
+        <p:inputText id="giperSsilka" value="#{managerMenu.dogovora.giperSsilka}"
+                     title="#{bundle.CreateDogovoraTitle_giperSsilka}"/>
+
+        <p:outputLabel value="Комментарий" for="commentDogovora"/>
+        <p:inputText id="commentDogovora" value="#{managerMenu.dogovora.commentDogovora}"
+                     title="#{bundle.CreateDogovoraTitle_commentDogovora}"/>
+
+    </p:panelGrid>
+</f:view>
+</html>
+

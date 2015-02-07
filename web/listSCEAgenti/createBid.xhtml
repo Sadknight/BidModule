@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+    <p:wizard nextLabel="Далее" backLabel="Назад">
+        <p:tab title="Основные данные">
+            <h:panelGrid columns="3" id="panelViboraIzdanii">
+                <p:outputLabel value="Контрагент" for="tt"/>
+                <p:selectOneMenu id="tt"
+                                 value="#{createEntity.idZayavki.idKontragenta}"
+                                 filter="true"
+                                 filterMatchMode="contains"
+                                 style="width: 235px">
+                    <f:selectItem itemLabel="---" itemValue="-1"/>
+                    <f:selectItems value="#{createEntity.zakazchikiList}"
+                                   var="mIDZ"
+                                   itemLabel="#{mIDZ.clientName}"
+                                   itemValue="#{mIDZ.idagenta}"/>
+                    <p:ajax listener="#{createEntity.viborContrAgenta}" update="izdaniya, panelViboraIzdanii"/>
+                </p:selectOneMenu>
+                <p:outputLabel rendered="#{!createEntity.filterKontragentov}"/>
+                <p:graphicImage value="../resources/icon/filter.png" rendered="#{createEntity.filterKontragentov}"/>
+                <p:outputLabel value="Основное издание" for="izdaniya"/>
+
+                <p:selectOneMenu id="izdaniya"
+                                 value="#{createEntity.idZayavki.idIzdanie}"
+                                 filter="true" filterMatchMode="contains"
+                        >
+
+                    <f:selectItems value="#{createEntity.spisokIzdanii}"
+                                   var="mIzd"
+                                   itemLabel="#{mIzd.nameIzd}"
+                                   itemValue="#{mIzd.idreestrIzdanii}"/>
+                    <p:ajax listener="#{createEntity.viborIzdanii}" update="tt, panelViboraIzdanii"/>
+                </p:selectOneMenu>
+                <p:outputLabel rendered="#{!createEntity.filterIzdanii}"/>
+                <p:graphicImage value="../resources/icon/filter.png" rendered="#{createEntity.filterIzdanii}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Комментарий" for="comIzdanie"/>
+                <p:inputText id="comIzdanie"
+
+                             value="#{createEntity.idZayavki.commentIzdanie}">
+                </p:inputText>
+
+                <p:outputLabel value="Тип изделия" for="tipIzdeliya"/>
+                <p:selectOneMenu id="tipIzdeliya"
+                                 value="#{createEntity.idZayavki.tipIzdeliya}">
+                    <f:selectItem itemLabel="---" itemValue=""/>
+                    <f:selectItem itemLabel="Журнальное издание КБС" itemValue="Журнальное издание КБС"/>
+                    <f:selectItem itemLabel="Журнальное издание ВШРА" itemValue="Журнальное издание ВШРА"/>
+                    <f:selectItem itemLabel="Издания с проклейкой корешка"
+                                  itemValue="Издания с проклейкой корешка"/>
+                    <f:selectItem itemLabel="Газетное издание со скреплением"
+                                  itemValue="Газетное издание со скреплением"/>
+                    <f:selectItem itemLabel="Газетное издание без скрепления"
+                                  itemValue="Газетное издание без скрепления"/>
+                    <f:selectItem itemLabel="Листовое издание без фальцовки"
+                                  itemValue="Листовое издание без фальцовки"/>
+                    <f:selectItem itemLabel="Листовое издание с фальцовкой"
+                                  itemValue="Листовое издание с фальцовкой"/>
+                    <f:selectItem itemLabel="Ролевый полуфабрикат" itemValue="Ролевый полуфабрикат"/>
+                    <f:selectItem itemLabel="Книжное издание" itemValue="Книжное издание"/>
+                    <f:selectItem itemLabel="Календарь" itemValue="Календарь"/>
+                    <p:ajax listener="#{createEntity.saveMethod}"/>
+                </p:selectOneMenu>
+            </h:panelGrid>
+
+            <p:button value="Выйти" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-closethick"
+                      outcome="/mainMenu.xhtml"/>
+        </p:tab>
+        <p:tab title="Параметры">
+            <p:panel header="Параметры">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Количество компонент:"/><p:outputLabel/>
+                    <p:outputLabel value="Основные компоненты"/>
+                    <p:spinner
+                            value="#{createEntity.idZayavki.colComponent}"
+                            min="1">
+                        <p:ajax listener="#{createEntity.chColComponent}"/>
+                    </p:spinner>
+                    <p:outputLabel value="Дополнительные изделия"/>
+                    <p:spinner value="#{createEntity.idZayavki.colDopIzdelii}" min="0">
+                        <p:ajax
+                                listener="#{createEntity.chColDopIzdelii}"/>
+                    </p:spinner>
+                    <p:outputLabel value="Количество частей издания">
+
+                    </p:outputLabel>
+                    <p:spinner
+                            value="#{createEntity.idZayavki.colPodizdanii}"
+                            min="1">
+                        <p:ajax
+                                listener="#{createEntity.chColPodizdanii}"/>
+                    </p:spinner>
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+        <p:tab title="Данные">
+            <p:panel header="Данные">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Дата прихода"/>
+
+                    <p:calendar
+                            value="#{createEntity.bufData1}"
+                            pattern="dd/MM/yyyy HH:mm">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+                        <p:ajax event="dateSelect" listener="#{createEntity.saveDate}"/>
+                    </p:calendar>
+
+                    <p:outputLabel value="Дата отгрузки"/>
+                    <p:calendar
+                            value="#{createEntity.bufData2}"
+                            pattern="dd/MM/yyyy HH:mm">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+                        <p:ajax event="dateSelect" listener="#{createEntity.saveDate}"/>
+                    </p:calendar>
+                    <p:outputLabel value="Формат"/>
+                    <p:selectOneMenu value="#{createEntity.formatBykvi}" tabindex="2">
+                        <f:selectItem itemLabel="A4" itemValue="A4"/>
+                        <f:selectItem itemLabel="A3" itemValue="A3"/>
+                        <f:selectItem itemLabel="A5" itemValue="A5"/>
+                        <f:selectItem itemLabel="A6" itemValue="A6"/>
+                        <f:selectItem itemLabel="B3" itemValue="B3"/>
+                        <f:selectItem itemLabel="B4" itemValue="B4"/>
+                        <f:selectItem itemLabel="B5" itemValue="B5"/>
+                        <f:selectItem itemLabel="B6" itemValue="B6"/>
+                        <p:ajax listener="#{createEntity.chFormatBykvi}" update="formatBykvi"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel/>
+                    <h:panelGrid id="formatBykvi" columns="2">
+                        <p:spinner value="#{createEntity.idZayavki.format1}" min="1" max="2500" size="3">
+                            <p:ajax listener="#{createEntity.saveMethod}"/>
+                        </p:spinner>
+
+                        <p:spinner value="#{createEntity.idZayavki.format2}" min="1" max="2500" size="3">
+                            <p:ajax listener="#{createEntity.saveMethod}"/>
+                        </p:spinner>
+                    </h:panelGrid>
+                    <p:outputLabel value="Тираж"/>
+                    <p:spinner value="#{createEntity.idZayavki.tiraj}" min="1000" max="5000000">
+                        <p:ajax listener="#{createEntity.saveMethod}"/>
+                    </p:spinner>
+
+
+                </h:panelGrid>
+            </p:panel>
+            <p:button value="Создать" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+                      outcome="#{createEntity.newClass()}"/>
+        </p:tab>
+    </p:wizard>
+</f:view>
+</html>

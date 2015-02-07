@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+
+        <p:outputLabel value="Название" for="commentPodizdaniya"/>
+        <p:inputText id="commentPodizdaniya" value="#{createEntity.podizdaniya.commentPodizdaniya}">
+            <p:ajax listener="#{createEntity.chNazvaniePodizdaniya}" event="blur"
+                    update="dialogComponentiTree, leftTreeComponenti"/>
+        </p:inputText>
+
+        <p:outputLabel value="Тираж" for="tirajPodizdaniya" rendered="#{createEntity.showTiraj}"/>
+        <p:spinner min="1000" id="tirajPodizdaniya" value="#{createEntity.podizdaniya.tirajPodizdaniya}"
+                   rendered="#{createEntity.showTiraj}">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:spinner>
+        <p:outputLabel value="Количество видов упаковки" for="colYpakovok"/>
+        <p:spinner min="1" id="colYpakovok" value="#{createEntity.podizdaniya.colYpakovok}">
+            <p:ajax listener="#{createEntity.chColYpakovok}" update="dialogComponentiTree, leftTreeComponenti"/>
+        </p:spinner>
+        <p:outputLabel value="Операции с изделием" for="operaciiSPodizdaniem"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="operaciiSPodizdaniem"
+                       value="#{createEntity.podizdaniya.operaciiSPodizdaniem}">
+            <p:ajax listener="#{createEntity.addOperaciiSIzdeliem}" update="dialogComponentiTree, leftTreeComponenti"/>
+        </p:inputSwitch>
+
+        <p:outputLabel value="Сигналые экземпляры" for="signaliPodizdanie"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="signaliPodizdanie"
+                       value="#{createEntity.podizdaniya.signaliPodizdanie}">
+            <p:ajax listener="#{createEntity.addDostavkiSignalov}" update="dialogComponentiTree, leftTreeComponenti"/>
+        </p:inputSwitch>
+
+        <p:outputLabel value="Макет" for="maketPodizdaniya"/>
+        <p:inputSwitch onLabel="Да" offLabel="Нет" id="maketPodizdaniya"
+                       value="#{createEntity.podizdaniya.maketPodizdaniya}">
+            <p:ajax listener="#{createEntity.saveMethod}"/>
+        </p:inputSwitch>
+
+
+    </h:panelGrid>
+    <h:panelGrid>
+        <p:pickList styleClass="ui-picklist-list"
+                    id="sostavPodizdaniya" value="#{createEntity.componentiListModel}" var="comp"
+                    itemLabel="#{comp}" itemValue="#{comp}"
+                    showSourceControls="true" showTargetControls="true" showCheckbox="true">
+            <f:facet name="sourceCaption">Компоненты</f:facet>
+            <f:facet name="targetCaption">Состав</f:facet>
+            <p:column style="width:75%;">
+                <h:outputText value="#{comp}"/>
+            </p:column>
+            <p:ajax listener="#{createEntity.saveMethod}" event="transfer"/>
+        </p:pickList>
+    </h:panelGrid>
+</h:body>
+</html>

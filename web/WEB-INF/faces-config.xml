@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+    </application>
+    <managed-bean>
+        <managed-bean-name>testTreeClass</managed-bean-name>
+        <managed-bean-class>managerCreateBid.TestTreeClass</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>forManagerRibbon</managed-bean-name>
+        <managed-bean-class>managerMenu.FormanagerRibbon</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>managerMenu</managed-bean-name>
+        <managed-bean-class>managerMenu.ManagerMenu</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>autificationBean</managed-bean-name>
+        <managed-bean-class>mainBeans.AutificationBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>dbConnection</property-name>
+            <value>#{idKontragentovM}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>managerMainZayavki</managed-bean-name>
+        <managed-bean-class>managerCreateBid.ManagerMainZayavki</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>showComponenti</property-name>
+            <property-class>boolean</property-class>
+            <value>false</value>
+        </managed-property>
+        <managed-property>
+            <property-name>showIDZayavki</property-name>
+            <property-class>boolean</property-class>
+            <value>true</value>
+        </managed-property>
+        <managed-property>
+            <property-name>showPodizdaniya</property-name>
+            <property-class>boolean</property-class>
+            <value>false</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>managerIDZayavki</managed-bean-name>
+        <managed-bean-class>managerCreateBid.ManagerIDZayavki</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>createEntity</managed-bean-name>
+        <managed-bean-class>beansForWorkBD.CreateEntity</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <display-name>index.xhtml</display-name>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>outcome</from-outcome>
+            <to-view-id>/mainMenu.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!--<navigation-rule>-->
+    <!--<display-name>mainMenu.xhtml</display-name>-->
+    <!--<from-view-id>/mainMenu.xhtml</from-view-id>-->
+    <!--<navigation-case>-->
+    <!--<from-outcome>outcome</from-outcome>-->
+    <!--<to-view-id>/calculatorPage/createBid.xhtml</to-view-id>-->
+    <!--</navigation-case>-->
+    <!--</navigation-rule>-->
+</faces-config>

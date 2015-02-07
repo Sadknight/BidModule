@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <p:ribbonGroup label="Поиск">
+        <p:commandButton
+                style="width: 50px"
+                id="searchAgenti"
+                styleClass="ui-ribbon-bigbutton"
+                icon="ui-ribbonicon-search"
+                title="Поиск">
+        </p:commandButton>
+        <p:menu overlay="true" trigger="searchAgenti" my="left top" at="left bottom">
+            <p:submenu label="Контрагенты">
+                <p:menuitem value="Показать все" icon="ui-icon-person"
+                            update="mainRibbon, centerForPage"
+                            actionListener="#{managerMenu.showPageAgenti}"/>
+                <p:menuitem value="Фильтр" icon="ui-icon-search"/>
+            </p:submenu>
+            <p:submenu label="Договора">
+                <p:menuitem value="Показать все" icon="ui-icon-clipboard"
+                            update="mainRibbon, centerForPage"
+                            actionListener="#{managerMenu.showPageDogovora}"/>
+                <p:menuitem value="Фильтр" icon="ui-icon-search"/>
+            </p:submenu>
+            <p:submenu label="Издания">
+                <p:menuitem value="Показать все" icon="ui-icon-note"
+                            update="mainRibbon, centerForPage"
+                            actionListener="#{managerMenu.showPageIzdanie}"/>
+                <p:menuitem value="Фильтр" icon="ui-icon-search"/>
+            </p:submenu>
+        </p:menu>
+    </p:ribbonGroup>
+    <p:ribbonGroup label="Контрагенты">
+        <p:commandButton id="newAgent" icon="ui-ribbonicon-addagent"
+                         styleClass="ui-ribbon-bigbutton"
+                         type="button"
+                         title="Создать нового контрагента">
+            <p:ajax listener="#{managerMenu.preShowPageCreateAgent}"
+                    update="centerForPage, mainRibbon"/>
+        </p:commandButton>
+        <p:commandButton id="newDogovor" icon="ui-ribbonicon-newdogovor"
+                         styleClass="ui-ribbon-bigbutton"
+                         type="button"
+                         title="Создать новый договор">
+            <p:ajax listener="#{managerMenu.preShowPageCreateDogovor}"
+                    update="centerForPage, mainRibbon"/>
+        </p:commandButton>
+        <p:commandButton id="newIzdanie" icon="ui-ribbonicon-newizdanie"
+                         styleClass="ui-ribbon-bigbutton"
+                         type="button"
+                         title="Создать новое издание">
+            <p:ajax listener="#{managerMenu.preShowPageCreateIzdanie}"
+                    update="centerForPage, mainRibbon"/>
+        </p:commandButton>
+    </p:ribbonGroup>
+    <ui:include src="#{managerMenu.showActionForAgenti}"/>
+</f:view>
+</html>

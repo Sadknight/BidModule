@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:panelGrid columns="2">
+        <p:outputLabel value="Название организации" style="color: brown"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.clientName}"/>
+        <p:outputLabel value="ИНН" style="color: brown"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.inn}"/>
+        <p:outputLabel style="color: brown" value="Заказчик" rendered="#{managerMenu.buferAgent.zakazchik}"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.zakazchik}" onLabel="Да" offLabel="Нет" disabled="true"
+                               rendered="#{managerMenu.buferAgent.zakazchik}"/>
+        <p:outputLabel style="color: brown" value="Подрядчик" rendered="#{managerMenu.buferAgent.podryad}"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.podryad}" rendered="#{managerMenu.buferAgent.podryad}"
+                               onLabel="Да" offLabel="Нет" disabled="true"/>
+
+        <p:outputLabel style="color: brown" value="Поставщик" rendered="#{managerMenu.buferAgent.postavschik}"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.postavschik}" onLabel="Да" offLabel="Нет"
+                               disabled="true" rendered="#{managerMenu.buferAgent.postavschik}"/>
+        <p:outputLabel style="color: brown" value="Прочее" rendered="#{managerMenu.buferAgent.arendator}"/>
+        <p:selectBooleanButton value="#{managerMenu.buferAgent.arendator}"
+                               rendered="#{managerMenu.buferAgent.arendator}" onLabel="Да" disabled="true"
+                               offLabel="Нет"/>
+
+        <p:outputLabel style="color: brown" value="Юридический адрес"
+                       rendered="#{managerMenu.buferAgent.urAdres!= null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.urAdres}" rendered="#{managerMenu.buferAgent.urAdres != null}"/>
+
+        <p:outputLabel style="color: brown" value="Фактический адрес"
+                       rendered="#{managerMenu.buferAgent.factAdres!= null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.factAdres}"
+                       rendered="#{managerMenu.buferAgent.factAdres!= null}"/>
+        <p:outputLabel style="color: brown" value="ФИО директора"
+                       rendered="#{managerMenu.buferAgent.director != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.director}"
+                       rendered="#{managerMenu.buferAgent.director != null}"/>
+
+        <p:outputLabel style="color: brown" value="Дата рождения"
+                       rendered="#{managerMenu.buferAgent.dateRojdeniya != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.dateRojdeniya}"
+                       rendered="#{managerMenu.buferAgent.dateRojdeniya != null}">
+            <f:convertDateTime pattern="dd/MM/yyyy"/>
+        </p:outputLabel>
+        <p:outputLabel style="color: brown" value="Телефон" rendered="#{managerMenu.buferAgent.telefon != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.telefon}" rendered="#{managerMenu.buferAgent.telefon != null}"/>
+
+        <p:outputLabel style="color: brown" value="Факс" rendered="#{managerMenu.buferAgent.fax != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.fax}" rendered="#{managerMenu.buferAgent.fax != null}"/>
+
+        <p:outputLabel style="color: brown" value="Сайт" rendered="#{managerMenu.buferAgent.www != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.www}" rendered="#{managerMenu.buferAgent.www != null}"/>
+
+        <p:outputLabel style="color: brown" value="Эл. почта" rendered="#{managerMenu.buferAgent.eMail != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.eMail}" rendered="#{managerMenu.buferAgent.eMail != null}"/>
+
+        <p:outputLabel style="color: brown" value="Тип агента" rendered="#{managerMenu.buferAgent.tipAgenta != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.tipAgenta}"
+                       rendered="#{managerMenu.buferAgent.tipAgenta != null}"/>
+
+        <p:outputLabel style="color: brown" value="Область деятельности"
+                       rendered="#{managerMenu.buferAgent.oblast != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.oblast}" rendered="#{managerMenu.buferAgent.oblast != null}"/>
+
+        <p:outputLabel style="color: brown" value="Направление деятельности"
+                       rendered="#{managerMenu.buferAgent.napravlenieDeyatelnosti != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.napravlenieDeyatelnosti}"
+                       rendered="#{managerMenu.buferAgent.napravlenieDeyatelnosti != null}"/>
+
+        <p:outputLabel style="color: brown" value="Рейтинг" rendered="#{managerMenu.buferAgent.reiting != null}"/>
+        <p:rating value="#{managerMenu.buferAgent.reiting}" disabled="true"
+                  rendered="#{managerMenu.buferAgent.reiting != null}"/>
+
+        <p:outputLabel style="color: brown" value="Комментарий"
+                       rendered="#{managerMenu.buferAgent.commentAgent != null}"/>
+        <p:outputLabel value="#{managerMenu.buferAgent.commentAgent}"
+                       rendered="#{managerMenu.buferAgent.commentAgent != null}"/>
+
+    </p:panelGrid>
+</f:view>
+</html>

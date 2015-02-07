@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:ribbonGroup label="Поиск">
+        <p:commandButton
+                style="width: 50px"
+                id="searchZayavka"
+                styleClass="ui-ribbon-bigbutton"
+                icon="ui-ribbonicon-search"
+                title="Поиск">
+        </p:commandButton>
+        <p:menu overlay="true" trigger="searchZayavka" my="left top" at="left bottom">
+            <p:menuitem value="Показать все" icon="ui-icon-document"
+                        update="centerForPage, mainRibbon"
+                        action="#{managerMenu.showPageBid}"/>
+            <p:menuitem value="Фильтр" icon="ui-icon-search"/>
+        </p:menu>
+    </p:ribbonGroup>
+    <p:ribbonGroup label="Создать">
+        <p:commandButton id="newZayavka"
+                         icon="ui-ribbonicon-new"
+                         styleClass="ui-ribbon-bigbutton"
+                         type="button"
+                         title="Создать новую заявку">
+            <p:ajax listener="#{managerMenu.showPageCreateBid}" update="centerForPage"/>
+        </p:commandButton>
+        <p:commandButton
+                style="width: 50px"
+                id="newShablon"
+                type="button"
+                styleClass="ui-ribbon-bigbutton"
+                icon="ui-ribbonicon-shablon"
+                title="Создать по шаблону"/>
+        <p:commandButton
+                style="width: 50px"
+                id="newObrazec"
+                type="button"
+                icon="ui-ribbonicon-obrzec"
+                styleClass="ui-ribbon-bigbutton"
+                title="Создать по образцу"/>
+    </p:ribbonGroup>
+</f:view>
+</html>

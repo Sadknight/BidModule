@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+</head>
+<h:body>
+    <h:panelGrid columns="2">
+        <p:outputLabel value="Количество отделок"/>
+        <p:spinner value="#{createEntity.colOtdelok}">
+            <p:ajax listener="#{createEntity.chColOtdeloc}"
+                    update="panelOtdelki, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"/>
+        </p:spinner>
+    </h:panelGrid>
+    <p:tabView id="panelOtdelki" activeIndex="#{createEntity.indexOtdelkiComponenti}">
+        <c:forEach begin="0" var="i" end="#{createEntity.otdelkaComponenti.size()-1}">
+            <p:tab title="#{createEntity.otdelkaComponenti[i].naimenovanieOtdelki}">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Исполнитель"/>
+                    <p:inputText value="#{createEntity.otdelkaComponenti[i].ispolnitelOtdelki}">
+                        <p:ajax event="blur" listener="#{createEntity.saveMethod}"/>
+                    </p:inputText>
+                    <p:outputLabel value="Операция отделки"/>
+                    <p:selectOneMenu value="#{createEntity.otdelkaComponenti[i].naimenovanieOtdelki}">
+                        <f:selectItems value="#{createEntity.testSpisokOtdelok}" var="otdelkii"
+                                       itemValue="#{otdelkii.nazvanieOtdelki}" itemLabel="#{otdelkii.nazvanieOtdelki}"/>
+                        <p:ajax update="panelOtdelki, :mainForm:leftTreeComponenti, :mainForm:dialogComponentiTree"
+                                listener="#{createEntity.chNazvanieOtdelki(i)}"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Название исполнителя"/>
+                    <p:inputText id="nameIspolniteliaOtdelki${i}"
+                                 value="#{createEntity.otdelkaComponenti[i].nameIspolniteliaOtdelki}">
+                        <p:ajax event="blur" listener="#{createEntity.saveMethod}"/>
+                    </p:inputText>
+                    <p:outputLabel value="Тираж отделки"/>
+                    <p:inputText value="#{createEntity.otdelkaComponenti[i].tirajOtdelki}">
+                        <p:ajax event="blur" listener="#{createEntity.saveMethod}"/>
+                    </p:inputText>
+                    <p:outputLabel value="Стоимость"/>
+                    <p:inputText value="#{createEntity.otdelkaComponenti[i].stoimostOtdelki}">
+                        <p:ajax event="blur" listener="#{createEntity.saveMethod}"/>
+                    </p:inputText>
+                </h:panelGrid>
+            </p:tab>
+        </c:forEach>
+    </p:tabView>
+</h:body>
+</html>

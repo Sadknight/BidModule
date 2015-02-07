@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+        >
+
+
+    <!--    <bean class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"
+              id="entityManagerFactory"
+              p:persistenceUnitName="NewPersistenceUnit">
+        </bean>-->
+    <!--<bean id="idKontragentovM" class="sessionsBidDB.IdKontragentovM"/>-->
+    <!--<bean id="izdaniiM" class="sessionsBidDB.ReestrIzdaniiM"/>-->
+    <!--<bean id="managerIDZayavki"-->
+    <!--class="managerCreateBid.ManagerIDZayavki"-->
+    <!--init-method="setDefaultSpisokIzdanii"-->
+    <!--scope="prototype"/>-->
+</beans>
