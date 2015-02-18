@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="modelPMP">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../modelPMP" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../modelPMP/src" />
+    </SOURCES>
+  </library>
+</component>

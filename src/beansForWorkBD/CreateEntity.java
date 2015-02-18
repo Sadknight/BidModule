@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+
 //import testovie.TestBymaga;
 
 public class CreateEntity implements Serializable {
@@ -58,7 +59,7 @@ public class CreateEntity implements Serializable {
     private String showedPage = "/calculatorPage/idzayavki/idzayavki.xhtml";
     private int groupOfList = 0;
     private Ypakovkagotovogoizdeliya ypakovka;
-    private Ykladkanapaleti ykladka;
+    private model.Ykladkanapaleti ykladka;
     private Dostavkasignalov signali;
     private List<Dostavka> dostavka;
     private NodeTreeMy buferTreenode;

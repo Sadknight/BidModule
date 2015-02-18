@@ -4,9 +4,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-        >
+      xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="mainTemplate.xhtml">
+    <ui:define name="top2">
+        <p:sticky target="mainRibbon"/>
+        <p:ribbon id="mainRibbon" activeIndex="#{managerMenu.ribbonIndex}">
+            <p:tab title="Заявка">
+                <ui:include src="/ribbonElements/BidElements.xhtml"/>
+            </p:tab>
+            <p:tab title="Контрагенты" id="kontragentiRibbon">
+                <ui:include src="/ribbonElements/agentElements.xhtml"/>
+            </p:tab>
+        </p:ribbon>
+    </ui:define>
     <ui:define name="content">
         <h:panelGrid id="centerForPage">
             <h:panelGrid>
