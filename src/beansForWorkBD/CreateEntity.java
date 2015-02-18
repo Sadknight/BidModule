@@ -1,7 +1,6 @@
 package beansForWorkBD;
 
 import interfaces.ConnectionBidDB;
-import model.*;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.TabChangeEvent;

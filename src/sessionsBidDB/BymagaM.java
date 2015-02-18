@@ -2,6 +2,7 @@ package sessionsBidDB;
 
 import model.Bymaga;
 
+
 /**
  * Created by DMalenkov on 01.10.2014.
  */
