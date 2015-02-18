@@ -1,10 +1,10 @@
 package managerMenu;
 
-import interfaces.ConnectionBidDB;
 import model.Dogovora;
 import model.IdKontragentov;
 import model.ReestrIzdanii;
 import org.primefaces.event.SelectEvent;
+import sessionsBidDB.ConnectionBidDB;
 import sessionsBidDB.DogovoraM;
 import sessionsBidDB.IdKontragentovM;
 import sessionsBidDB.ReestrIzdaniiM;

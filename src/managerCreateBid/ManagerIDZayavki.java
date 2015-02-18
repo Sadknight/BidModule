@@ -1,7 +1,7 @@
 package managerCreateBid;
 
-import interfaces.ConnectionBidDB;
 import model.ReestrIzdanii;
+import sessionsBidDB.ConnectionBidDB;
 import sessionsBidDB.ReestrIzdaniiM;
 
 import javax.annotation.PostConstruct;

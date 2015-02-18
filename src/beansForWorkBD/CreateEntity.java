@@ -1,11 +1,12 @@
 package beansForWorkBD;
 
-import interfaces.ConnectionBidDB;
+import model.*;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.TabChangeEvent;
 import org.primefaces.model.DualListModel;
 import org.primefaces.model.TreeNode;
+import sessionsBidDB.ConnectionBidDB;
 import sessionsBidDB.IdKontragentovM;
 import sessionsBidDB.ReestrIzdaniiM;
 import sessionsBidDB.SparovochnikPantone;
@@ -59,7 +60,7 @@ public class CreateEntity implements Serializable {
     private int groupOfList = 0;
     private Ypakovkagotovogoizdeliya ypakovka;
     private model.Ykladkanapaleti ykladka;
-    private Dostavkasignalov signali;
+    private model.Dostavkasignalov signali;
     private List<Dostavka> dostavka;
     private NodeTreeMy buferTreenode;
     private NodeTreeMy treeNode;
@@ -249,7 +250,7 @@ public class CreateEntity implements Serializable {
         spisokPPKDav.add("ППК");
         spisokPPKDav.add("Давальческое");
         try {
-            interfaces.ConnectionBidDB<Pantonespravochnik> entityPantonespravochnikConnectionBidDB = new SparovochnikPantone();
+            ConnectionBidDB<Pantonespravochnik> entityPantonespravochnikConnectionBidDB = new SparovochnikPantone();
             spravochnikPantonov = entityPantonespravochnikConnectionBidDB.getEntities();
         } catch (Exception e) {
             System.err.println("Ошибка " + e);

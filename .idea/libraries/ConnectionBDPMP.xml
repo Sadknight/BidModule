@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ConnectionBDPMP">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../ConnectionBDPMP/out/production/ConnectionBDPMP" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

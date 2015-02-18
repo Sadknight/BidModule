@@ -1,6 +1,6 @@
 package mainBeans;
 
-import interfaces.ConnectionBidDB;
+import sessionsBidDB.ConnectionBidDB;
 
 import java.io.Serializable;
 
