@@ -29,6 +29,7 @@ public class AdManager {
     }
 
     public void showAdAction(SelectEvent event) {
+        String st;
         buferAd = (Ad) event.getObject();
         showAdAction = "/ribbonElements/actionAd/actionAD.xhtml";
     }
