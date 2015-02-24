@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../mainTemplate.xhtml">
+
+    <ui:define name="content">
+        <h:panelGrid id="centerForPage">
+            <h:panelGrid columns="2">
+                <p:outputLabel value="#{autificationBean.user}"/>
+                <p:outputLabel/>
+                <p:outputLabel value="Тип проблемы"/>
+                <p:selectOneMenu id="tipBidHD">
+                    <f:selectItem itemLabel="Сеть" itemValue="Сеть"/>
+                    <f:selectItem itemLabel="Телефон" itemValue="Телефон"/>
+                    <f:selectItem itemLabel="Принтер" itemValue="Принтер"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Описание проблемы"/>
+                <p:inputTextarea>
+
+                </p:inputTextarea>
+            </h:panelGrid>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>
+</html>

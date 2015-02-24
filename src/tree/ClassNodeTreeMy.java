@@ -26,6 +26,7 @@ public class ClassNodeTreeMy implements NodeTreeMy {
     private boolean selectable = true;
 
     private String rowKey;
+
     public ClassNodeTreeMy() {
         this.type = DEFAULT_TYPE;
         this.children = new TreeNodeChildren(this);

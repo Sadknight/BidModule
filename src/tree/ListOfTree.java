@@ -37,7 +37,6 @@ public class ListOfTree implements Serializable, Comparable<ListOfTree> {
         this.numbGroup = numbGroup;
     }
 
-
     public ListOfTree(String nameClass, String color) {
         this.nameClass = nameClass;
         this.color = color;
@@ -84,25 +83,7 @@ public class ListOfTree implements Serializable, Comparable<ListOfTree> {
         this.color = color;
     }
 
-    public String getNameClass() {
-        return nameClass;
-    }
 
-    public void setNameClass(String nameClass) {
-        this.nameClass = nameClass;
-    }
-
-    public int getNumbClass() {
-        return numbClass;
-    }
-
-    public void setNumbClass(int numbClass) {
-        this.numbClass = numbClass;
-    }
-
-    public void setNumbClass(Integer numbClass) {
-        this.numbClass = numbClass;
-    }
 
     @Override
     public int compareTo(ListOfTree o) {
@@ -199,5 +180,25 @@ public class ListOfTree implements Serializable, Comparable<ListOfTree> {
 
     public void setNumbGroup(Integer numbGroup) {
         this.numbGroup = numbGroup;
+    }
+
+    public String getNameClass() {
+        return nameClass;
+    }
+
+    public void setNameClass(String nameClass) {
+        this.nameClass = nameClass;
+    }
+
+    public int getNumbClass() {
+        return numbClass;
+    }
+
+    public void setNumbClass(Integer numbClass) {
+        this.numbClass = numbClass;
+    }
+
+    public void setNumbClass(int numbClass) {
+        this.numbClass = numbClass;
     }
 }

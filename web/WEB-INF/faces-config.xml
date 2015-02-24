@@ -13,9 +13,10 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
+
     <managed-bean>
-        <managed-bean-name>forManagerRibbon</managed-bean-name>
-        <managed-bean-class>managerMenu.FormanagerRibbon</managed-bean-class>
+        <managed-bean-name>adManager</managed-bean-name>
+        <managed-bean-class>adManagerPage.AdManager</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
@@ -23,7 +24,6 @@
         <managed-bean-name>managerMenu</managed-bean-name>
         <managed-bean-class>managerMenu.ManagerMenu</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
-
     </managed-bean>
     <managed-bean>
         <managed-bean-name>autificationBean</managed-bean-name>

@@ -4,6 +4,8 @@ import model.Dogovora;
 import model.IdKontragentov;
 import model.ReestrIzdanii;
 import org.primefaces.event.SelectEvent;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import sessionsBidDB.ConnectionBidDB;
 import sessionsBidDB.DogovoraM;
 import sessionsBidDB.IdKontragentovM;
@@ -16,6 +18,7 @@ import java.util.List;
  * Created by DMalenkov on 15.12.2014.
  */
 public class ManagerMenu {
+
     private List<IdKontragentov> spisokAgentov;
     private List<Dogovora> spisokDogovorov;
     private List<ReestrIzdanii> spisokIzdanii;
@@ -50,6 +53,9 @@ public class ManagerMenu {
         inter = new ReestrIzdaniiM();
         spisokIzdanii = inter.getEntities();
         buferAgent = new IdKontragentov();
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+//        InterfaceManagerMenu men = (InterfaceManagerMenu) ctx.getBean("mainBean");
+//        System.out.println(" "+men.getNameBean());
     }
 
     //Метод отображения действий над контрагентом
@@ -110,6 +116,12 @@ public class ManagerMenu {
         bufferForShowDialogPage = showingPage;
     }
 
+    public void showPageAd() {
+        //    showActionGeneral();
+        showingPage = "/ad/showAll.xhtml";
+        bufferForShowDialogPage = showingPage;
+    }
+
     public void showPageDogovora() {
         showActionGeneral();
         showingPage = "/panelKontragenti/dogovors.xhtml";
@@ -138,6 +150,7 @@ public class ManagerMenu {
         buferAgent = new IdKontragentov();
         showPageCreateAgent();
     }
+
 
     public void showPageCreateAgent() {
         showActionGeneral();

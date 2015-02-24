@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <p:tabView>
+        <p:tab title="Users">
+            <h:panelGrid>
+                <p:dataTable var="ad" value="#{adManager.adAll}"
+                             rows="15"
+                             selectionMode="single"
+                             rowKey="#{ad.idad}"
+                             resizableColumns="true"
+                             paginator="true"
+                             rowsPerPageTemplate="10,15,50">
+                    <p:ajax event="rowSelect" listener="#{adManager.showAdAction}" update=":mainForm:mainRibbon"/>
+                    <p:ajax event="rowUnselect" listener="#{adManager.hideAdAction}" update=":mainForm:mainRibbon"/>
+                    <p:column headerText="id" filterBy="#{ad.idad}" filterMatchMode="contains" width="40"
+                              filterStyle="width: 25px">
+                        <h:outputText value="#{ad.idad}"/>
+                    </p:column>
+                    <p:column headerText="Отдел" filterBy="#{ad.department}" filterMatchMode="contains">
+                        <h:outputText value="#{ad.department}"/>
+                    </p:column>
+                    <p:column headerText="Компьютер" filterBy="#{ad.computerNumber}" filterMatchMode="contains">
+                        <h:outputText value="#{ad.computerNumber}"/>
+                    </p:column>
+                    <p:column headerText="IP" filterBy="#{ad.ip}" filterMatchMode="contains">
+                        <h:outputText value="#{ad.ip}"/>
+                    </p:column>
+
+                    <p:column headerText="ФИО" filterBy="#{ad.firstName}" filterMatchMode="contains">
+                        <h:outputText value="#{ad.firstName}"/>
+                    </p:column>
+
+                    <p:column headerText="Кабинет" filterBy="#{ad.location}" filterMatchMode="contains">
+                        <h:outputText value="#{ad.location}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Hiflex">
+            <h:panelGrid>
+                <p:dataTable var="hiflex" value="#{adManager.hxAll}"
+                             rows="15"
+                             selectionMode="single"
+                             rowKey="#{ad.idad}"
+                             resizableColumns="true"
+                             paginator="true"
+                             rowsPerPageTemplate="10,15,50">
+                    <p:ajax event="rowSelect" listener="#{adManager.showAdAction}" update=":mainForm:mainRibbon"/>
+                    <p:ajax event="rowUnselect" listener="#{adManager.hideAdAction}" update=":mainForm:mainRibbon"/>
+                    <p:column headerText="id" filterBy="#{hiflex.hid}" filterMatchMode="contains" width="40"
+                              filterStyle="width: 25px">
+                        <h:outputText value="#{hiflex.hid}"/>
+                    </p:column>
+                    <p:column headerText="Login">
+                        <h:outputText value="#{hiflex.hxLogin}"/>
+                    </p:column>
+                    <p:column headerText="Login">
+                        <h:outputText value="#{hiflex.hxPassword}"/>
+                    </p:column>
+                    <p:column headerText="Login">
+                        <h:outputText value="#{hiflex.hxsmbPassword}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGrid>
+        </p:tab>
+
+    </p:tabView>
+</f:view>
+</html>

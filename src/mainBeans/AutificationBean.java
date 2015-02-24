@@ -1,6 +1,7 @@
 package mainBeans;
 
 import sessionsBidDB.ConnectionBidDB;
+import staticClass.TestIntr;
 
 import java.io.Serializable;
 
@@ -46,6 +47,15 @@ public class AutificationBean implements Serializable {
     }
 
     public String getUser() {
+        try {
+            // ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+            TestIntr t = (TestIntr) org.springframework.web.context.ContextLoaderListener.getCurrentWebApplicationContext().getBean("test");
+            System.out.println(t.getAd().getFirstName());
+            user = t.getAd().getFirstName();
+        } catch (NullPointerException e) {
+            System.out.println("Вылезло исключение " + e);
+            user = "Представьтесь";
+        }
         return user;
     }
 

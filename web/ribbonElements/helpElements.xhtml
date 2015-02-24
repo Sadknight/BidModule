@@ -2,47 +2,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <f:view>
     <p:ribbonGroup label="Поиск">
         <p:commandButton
                 style="width: 50px"
-                id="searchZayavka"
+                id="showAd"
                 styleClass="ui-ribbon-bigbutton"
                 icon="ui-ribbonicon-search"
-                title="Поиск">
+                title="Показать AD">
+            <p:ajax listener="#{managerMenu.showPageAd}" update="centerForPage"/>
         </p:commandButton>
-        <p:menu overlay="true" trigger="searchZayavka" my="left top" at="left bottom">
-            <p:menuitem value="Показать все" icon="ui-icon-document"
-                        update="centerForPage, mainRibbon"
-                        action="#{managerMenu.showPageBid}"/>
-            <p:menuitem value="Фильтр" icon="ui-icon-search"/>
-        </p:menu>
     </p:ribbonGroup>
-    <p:ribbonGroup label="Создать">
-        <p:commandButton id="newZayavka"
+    <p:ribbonGroup label="Действия">
+        <p:commandButton id="newElement"
                          icon="ui-ribbonicon-new"
                          styleClass="ui-ribbon-bigbutton"
                          type="button"
-                         title="Создать новую заявку">
+                         title="Создать новую запись">
             <p:ajax listener="#{managerMenu.showPageCreateBid}" update="centerForPage"/>
         </p:commandButton>
         <p:commandButton
                 style="width: 50px"
-                id="newShablon"
+                id="editAd"
                 type="button"
                 styleClass="ui-ribbon-bigbutton"
                 icon="ui-ribbonicon-shablon"
-                title="Создать по шаблону"
-                onclick="PF('dlg1').show();"/>
-        <p:commandButton
-                style="width: 50px"
-                id="newObrazec"
-                type="button"
-                icon="ui-ribbonicon-obrzec"
-                styleClass="ui-ribbon-bigbutton"
-                title="Создать по образцу"/>
+                title="Редактировать"/>
+    </p:ribbonGroup>
+    <p:ribbonGroup>
+        <ui:include src="#{adManager.showAdAction}"/>
     </p:ribbonGroup>
 </f:view>
 </html>

@@ -16,4 +16,10 @@
     <!--class="managerCreateBid.ManagerIDZayavki"-->
     <!--init-method="setDefaultSpisokIzdanii"-->
     <!--scope="prototype"/>-->
+    <bean id="mainBean" class="mainBeans.MainBean" scope="session">
+
+    </bean>
+    <bean id="test" class="staticClass.Test" scope="session">
+
+    </bean>
 </beans>

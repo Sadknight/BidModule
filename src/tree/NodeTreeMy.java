@@ -8,5 +8,4 @@ import org.primefaces.model.TreeNode;
 public interface NodeTreeMy extends TreeNode {
 
     public void setData(Object data);
-
 }

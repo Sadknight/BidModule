@@ -18,16 +18,15 @@
               maximizable="true"
               minimizable="true" modal="false">
         <p:tree id="dialogComponentiTree"
-                value="#{createEntity.zayavka}"
-                var="Node"
-                selectionMode="single"
                 orientation="horizontal"
+                value="#{createEntity.treeNode}"
+                var="node"
+                selectionMode="single"
                 styleClass="ui-treenode-parent"
                 dynamic="true">
-            <p:ajax update=":mainForm:testCenterElements" event="select"
-                    listener="#{createEntity.chooseTree}"/>
+            <p:ajax update=":mainForm:testCenterElements" event="select" listener="#{createEntity.chooseTree}"/>
             <p:treeNode>
-                <h:outputText style="color: #{node.color}" value="#{Node.nameClass}"/>
+                <p:outputLabel style="color: #{node.color}" value="#{node.nameClass}"/>
             </p:treeNode>
         </p:tree>
     </p:dialog>
