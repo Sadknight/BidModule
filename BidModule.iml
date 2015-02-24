@@ -42,9 +42,10 @@
     <orderEntry type="library" name="org.hibernate:hibernate-entitymanager:4.3.6.Final" level="application" />
     <orderEntry type="library" name="mysql-connector-java" level="application" />
     <orderEntry type="library" name="org.springframework:spring-web:3.2.2.RELEASE" level="project" />
-    <orderEntry type="library" name="all-themes-1.0.8" level="project" />
     <orderEntry type="library" name="primefaces-5.1" level="application" />
     <orderEntry type="library" name="src" level="project" />
+    <orderEntry type="library" name="all-themes-1.0.81" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.0.0 - JSF" level="application_server_libraries" />
     <orderEntry type="library" name="ConnectionBDPMP" level="project" />
   </component>
 </module>
